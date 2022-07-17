@@ -1,0 +1,38 @@
+.title {
+    color: #FFFFFF;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    text-transform: uppercase;
+    &_fz15 {
+        font-size: 15px;
+        font-weight: 400;
+        color: #FFFFFFB0;
+        text-transform: none;
+    }
+    &_fz24 {
+        font-family: "Fira Sans", Sans-serif;
+        font-size: 25px;
+        font-weight: 300;
+    }
+    &_fz25 {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    &_fz30 {
+        font-size: 30px;
+        font-weight: 400;
+        font-family: "Fira Sans", Sans-serif;
+    }
+    &_fz46 {
+        font-size: 46px;
+        font-weight: 400;
+        line-height: 1em;
+        font-family: "Fira Sans", Sans-serif;
+    }
+    &_fz99 {
+        font-size: 99px;
+        font-weight: 800;
+        text-shadow: 0px 0px 5px rgb(170 66 243 / 35%);
+    }
+}

@@ -1,0 +1,11 @@
+.button {
+    background-image: linear-gradient(120deg, $blue 60%, $violet 100%);
+    border-radius: 100px;
+    border: 1px solid $blue;
+    &:hover {
+        background-image: linear-gradient(120deg, $blue 0, $violet 100%);
+    }
+    &_header {
+        padding: 20px;
+    }
+}
