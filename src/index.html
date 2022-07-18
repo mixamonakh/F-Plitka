@@ -49,12 +49,7 @@
     <!-- Фавиконка -->
 </head>
 <body>
-    <section class="promo">
-        <nav>   <!-- Навигационное менюшка -->
-
-        </nav>
-
-        <header>
+    <header class="promo">
             <div class="promo__slider" id="autoHeight">     <!-- Слайдер-хедер -->
                 <div>
                     <img class="promo__img" src="https://kraski-net.ru/wp-content/uploads/2020/11/Ukladka-plitki-na-pol-2048x1365.jpg" alt="plitka_1">
@@ -136,8 +131,29 @@
                     </button>
                 </div>
             </div>
-        </header>
-    </section>
+            <div class="promo-phone">
+                <div class="promo-phone__wrapper">
+                    <div class="promo-phone__block">
+                        <h2 class="title title_fz16 promo-phone__title">
+                            Звоните прямо сейчас:
+                        </h2>
+                        <a href="tel:+74993017094" class="title title_fz20 promo-phone__number">
+                            +7 (499) 301 70 94
+                        </a>
+                    </div>
+                    <div class="promo-phone__divider"></div>
+                    <button class="button button_phone promo-phone__button">
+                        <div class="promo-phone__img">
+                            <img src="icons/promo-phone.svg" alt="promo-phone" class="promo-phone__svg">
+                        </div>
+                        <div class="promo-phone__text">
+                            <span class="title title_fz16">заказать</span>
+                            <span class="title title_fz16 title_fz16-weight">звонок</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+    </header>
 
     <script src="js/wow.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>

@@ -70,6 +70,9 @@
         &:hover {
             background-image: linear-gradient(120deg, $blue 0, $violet 100%);
         }
+        &:hover .title_fz15 {
+            color: #fff;
+        }
     }
     &__left {
         margin-left: 10px;
@@ -77,6 +80,60 @@
     &__right {
         order: -1;
         margin-right: 10px;
+    }
+}
+
+.promo-phone {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 105px;
+    background-color: transparent;
+    background-color: #ffffff52;
+    &__wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 55%;
+        height: 100%;
+        background-color: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__block {
+        text-align: right;
+        line-height: 15px;
+    }
+
+    &__divider {
+        width: 1px;
+        height: 100%;
+        background-color: rgb(160, 160, 160);
+    }
+
+    &__img {
+        background-color: #0057FF;
+        border-radius: 100%;
+        padding: 15px;
+    }
+    &__svg {
+        height: 15px;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        &:hover .title_fz16 {
+            color: #fff;
+        }
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        line-height: 17px;
     }
 }
 

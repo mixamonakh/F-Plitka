@@ -9,6 +9,23 @@
         font-weight: 400;
         color: #FFFFFFB0;
         text-transform: none;
+        transition: .5s;
+    }
+    &_fz16 {
+        color: #454545;
+        font-family: "Fira Sans", Sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        text-transform: none;
+        transition: 1s;
+        &-weight {
+            font-weight: 700;
+            font-family: "Montserrat", Sans-serif;
+        }
+    }
+    &_fz20 {
+        color: #1A1A1A;
+        font-size: 20px;
     }
     &_fz24 {
         font-family: "Fira Sans", Sans-serif;
