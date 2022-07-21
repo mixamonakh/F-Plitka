@@ -1,4 +1,8 @@
+// Анимации WoW
+
 new WOW().init();
+
+// Тини слайдер
 
 var slider = tns({
     container: '#autoHeight',
@@ -18,6 +22,8 @@ document.querySelector('.promo-arrows__next').addEventListener('click', function
     slider.goTo('next');
 });
 
+// Гамбургер
+
 const hamburger = document.querySelector('.hamburger'),
       menu = document.querySelector ('.menu'),
       closeElem = document.querySelector ('.menu__close');
@@ -29,3 +35,20 @@ hamburger.addEventListener('click', () => {
 closeElem.addEventListener('click', () => {
     menu.classList.remove('active');
 });
+
+// Аккордион
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}

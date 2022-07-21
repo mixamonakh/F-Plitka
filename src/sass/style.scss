@@ -23,13 +23,16 @@
 a {
     text-decoration: none
 }
+a:hover {
+    color: #fff;
+}
 
 @import 'blocks/title/title';
 @import 'blocks/button/button';
 @import 'blocks/promo/promo';
 @import 'blocks/menu/menu';
 @import 'blocks/hamburger';
-// @import 'blocks';
+@import 'blocks/accordion/accordion';
 // @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';

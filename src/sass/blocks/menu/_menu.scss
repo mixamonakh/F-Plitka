@@ -18,6 +18,7 @@ nav {
     &__list {
         margin: 0;
         padding: 0;
+        position: relative;
     }
     &__link {
         list-style: none;
@@ -28,6 +29,9 @@ nav {
             background-color: $blue;
             transition: .5s;
             color: #fff;
+        }
+        &_accordion {
+            text-align: center;
         }
     }
     &__close {
@@ -81,9 +85,9 @@ nav {
         align-items: center;
         justify-content: center;
         padding: 20px;
-        transition: 1s;
         &:hover .title_fz13 {
             color: $blue;
+            transition: 1s;
         }
         &:hover svg path{
             transition: 1s;
