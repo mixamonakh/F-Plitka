@@ -31,8 +31,23 @@ a:hover {
 @import 'blocks/button/button';
 @import 'blocks/promo/promo';
 @import 'blocks/menu/menu';
-@import 'blocks/hamburger';
+@import 'blocks/hamburger/hamburger';
 @import 'blocks/accordion/accordion';
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
+
+// Адаптация:
+
+@import 'blocks/button/button-media';
+@import 'blocks/title/title-media';
+@import 'blocks/hamburger/hamburger-media';
+@import 'blocks/promo/header-media';
+// @import 'blocks';
+// @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';

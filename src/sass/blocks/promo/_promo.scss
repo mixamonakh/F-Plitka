@@ -47,9 +47,8 @@
     &__logo {
         position: absolute;
         bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
+        left: 350px;
+        z-index: 5;
     }
 
     &__wrapper {
@@ -95,7 +94,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 55%;
+        width: 500px;
         height: 100%;
         background-color: #FFF;
         display: flex;
@@ -134,6 +133,12 @@
         flex-direction: column;
         margin-left: 10px;
         line-height: 17px;
+    }
+    &__number {
+        transition: 1s;
+        &:hover {
+            color: $blue;
+        }
     }
 }
 

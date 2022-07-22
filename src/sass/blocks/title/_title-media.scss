@@ -1,0 +1,41 @@
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    .title {
+        &_fz24 {
+            font-size: 14px;
+        }
+        &_fz25 {
+            font-size: 15px;
+        }
+        &_fz46 {
+            font-size: 20px;
+        }
+        &_fz30 {
+            font-size: 16px;
+        }
+        &_fz99 {
+            font-size: 43px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+}

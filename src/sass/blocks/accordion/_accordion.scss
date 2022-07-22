@@ -9,10 +9,13 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
+        transition: 1s;
     }
 }
-.active {
-    background-color: #1A1A1A;
+.active-accordion {
+    &:after {
+        transform: rotate(180deg);
+    }
 }
 
 .panel {
@@ -21,41 +24,23 @@
     overflow: hidden;
 }
 
-// .accordion {
-//     background-color: #CFD8DC;
-//     color: #fff;
-//     cursor: pointer;
-//     padding: 16px;
-//     width: 50%;
-//     border: none;
-//     text-align: left;
-//     outline: none;
-//     font-size: 18px;
-//     transition: 0.5s;
-// }
+.accordion_mobile {
+    &:after {
+        content: '';
+        position: absolute;
+        margin-left: 30px;
+        background: url(../../../icons/accordion.png);
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: 1s;
+    }
+}
 
-// .active, .accordion:hover {
-//     background-color: #607D8B;
-// }
-
-// .accordion:after {
-//     content: '\002B';
-//     color: #fff;
-//   font-size: 18px;
-//     font-weight: bold;
-//     float: right;
-//     margin-left: 5px;
-// }
-
-// .active:after {
-//     content: "\2212";
-// }
-
-// .panel {
-//     padding: 0 18px;
-//   color: #212121;
-//     background-color: #fff;
-//     max-height: 0;
-//     overflow: hidden;
-//     transition: max-height 0.3s ease-out;
-// }
+.panel_mobile {
+    transition: 1s;
+    max-height: 0;
+    overflow: hidden;
+}

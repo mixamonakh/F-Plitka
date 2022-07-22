@@ -43,7 +43,7 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
+    this.classList.toggle("active-accordion");
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight){
       panel.style.maxHeight = null;
@@ -52,3 +52,36 @@ for (i = 0; i < acc.length; i++) {
     } 
   });
 }
+
+// Аккордион мобильная версия
+
+var bcc = document.getElementsByClassName("accordion_mobile");
+var i;
+
+for (i = 0; i < bcc.length; i++) {
+  bcc[i].addEventListener("click", function() {
+    this.classList.toggle("active-accordion");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+
+// Гамбургер мобильная версия
+
+const burger = document.querySelector('.hamburger'),
+      menuMob = document.querySelector ('.menu-mobile'),
+      closeElement = document.querySelector ('.menu-mobile__close');
+
+burger.addEventListener('click', () => {
+    menuMob.classList.add('active');
+    burger.classList.add('hamburger_actives')
+});
+
+closeElement.addEventListener('click', () => {
+    menuMob.classList.remove('active');
+    burger.classList.remove('hamburger_actives')
+});

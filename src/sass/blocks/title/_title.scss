@@ -9,6 +9,11 @@
         font-size: 13px;
         font-weight: 400;
         text-transform: none;
+        &_weight {
+            font-family: "Montserrat", Sans-serif;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
     }
     &_fz15 {
         font-size: 15px;
