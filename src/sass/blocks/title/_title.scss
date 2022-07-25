@@ -25,6 +25,10 @@
             font-weight: 600;
             color: #fff;
         }
+        &_font {
+            font-family: "Fira Sans", Sans-serif;
+            color: #FFFF;
+        }
     }
     &_fz16 {
         color: #454545;
@@ -38,9 +42,19 @@
             font-family: "Montserrat", Sans-serif;
         }
     }
+    &_fz18 {
+        color: #A1A1A1;
+        font-family: "Fira Sans", Sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: unset;
+    }
     &_fz20 {
         color: #1A1A1A;
         font-size: 20px;
+    }
+    &_fz23 {
+        font-size: 23px;
     }
     &_fz24 {
         font-family: "Fira Sans", Sans-serif;
@@ -55,6 +69,9 @@
         font-size: 30px;
         font-weight: 400;
         font-family: "Fira Sans", Sans-serif;
+        &_unset {
+            text-transform: unset;
+        }
     }
     &_fz46 {
         font-size: 46px;
