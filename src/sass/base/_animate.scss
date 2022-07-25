@@ -1,0 +1,5 @@
+.animate {
+    &__zoomInLeft, &__zoomInUp, &__zoomInRight {
+        --animate-duration: 1.5s;
+    }
+}

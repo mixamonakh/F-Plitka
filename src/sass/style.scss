@@ -5,7 +5,7 @@
 
 
 @import 'base/variables';
-// @import '';
+@import 'base/animate';
 // @import '';
 // @import '';
 
@@ -32,6 +32,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
+// Стили блоков
+
 @import 'blocks/title/title';
 @import 'blocks/button/button';
 @import 'blocks/promo/promo';
@@ -51,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 @import 'blocks/title/title-media';
 @import 'blocks/hamburger/hamburger-media';
 @import 'blocks/promo/header-media';
-// @import 'blocks';
+@import 'blocks/services/services-media';
 // @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';

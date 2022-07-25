@@ -1,13 +1,15 @@
 .services {
-    min-height: 900px;
+    min-height: 850px;
     padding: 70px 0;
     background: rgba(26, 26, 26, 1);
     position: relative;
+    z-index: 1;
     &__bg {
         position: absolute;
-        top: 10px;
+        top: 0;
         right: 50px;
         opacity: .1;
+        z-index: -1;
     }
     &__subtitle {
         background: linear-gradient(337deg,$violet 74%,$blue 94%);
@@ -15,20 +17,70 @@
             -webkit-text-fill-color: transparent;
         margin-bottom: 20px;
     }
+    // Кнопка
     &__button {
         display: flex;
         justify-content: space-between;
         width: 140px;
     }
-
+    // Грид
     &__grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
     &__block {
-
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
     }
-    &__picture {
-        
+    &__text {
+        margin-bottom: 20px;
+    }
+}
+
+.services-picture {
+    position: relative;
+    width: 350px;
+    height: 300px;
+    margin-bottom: 20px;
+    &_margin0 {
+        margin-bottom: 0;
+    }
+    &_margin30 {
+        margin-bottom: 30px;
+    }
+    &__background {
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        right: 0;
+        bottom: 0;
+        &-middle {
+            top: -7px;
+            bottom: unset;
+        }
+        &-bot {
+            top: 30px;
+            bottom: unset;
+        }
+    }
+    &__img {
+        position: absolute;
+        width: 300px;
+        height: 250px;
+        top: 0;
+        left: 0;
+        transition: .5s;
+        &:hover {
+            box-shadow: -5px -5px 20px 2px $violet;
+        }
+        &-middle {
+            width: 350px;
+            height: 233px;
+        }
+        &-bot {
+            width: 350px;
+            height: 262px;
+        }
     }
 }
