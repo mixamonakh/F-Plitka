@@ -15,17 +15,26 @@
         max-width: 540px;
     }
     .title {
+        &_fz14 {
+            font-size: 13px;
+        }
+        &_fz22 {
+            font-size: 17px;
+        }
         &_fz24 {
             font-size: 14px;
         }
         &_fz25 {
             font-size: 15px;
         }
-        &_fz46 {
-            font-size: 20px;
-        }
         &_fz30 {
             font-size: 16px;
+        }
+        &_fz45 {
+            font-size: 25px;
+        }
+        &_fz46 {
+            font-size: 20px;
         }
         &_fz80 {
             font-size: 25px;
