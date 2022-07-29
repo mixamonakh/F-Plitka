@@ -1,0 +1,14 @@
+.image-background {
+    position: absolute;
+    opacity: .1;
+    z-index: -1;
+    &_services {
+        top: 0;
+        right: 50px;
+    }
+    &_advantage {
+        top: 0;
+        left: 0;
+        height: 650px;
+    }
+}

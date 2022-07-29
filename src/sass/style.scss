@@ -34,16 +34,16 @@ h1, h2, h3, h4, h5, h6 {
 
 // Стили блоков
 
-@import 'blocks/title/title';
-@import 'blocks/button/button';
+@import 'blocks/title/title';       // Font-Size
+@import 'blocks/button/button';     // Кнопки
 @import 'blocks/promo/promo';
 @import 'blocks/menu/menu';
 @import 'blocks/hamburger/hamburger';
 @import 'blocks/accordion/accordion';
 @import 'blocks/services/services';
 @import 'blocks/info/info';
-// @import 'blocks/';
-// @import 'blocks/';
+@import 'blocks/image-background';      //Бэкграунды макеты домов
+@import 'blocks/advantage/advantage';
 // @import 'blocks';
 // @import 'blocks';
 
@@ -55,6 +55,6 @@ h1, h2, h3, h4, h5, h6 {
 @import 'blocks/promo/header-media';
 @import 'blocks/services/services-media';
 @import 'blocks/info/info-media';
-// @import 'blocks';
+@import 'blocks/advantage/advantage-media';
 // @import 'blocks';
 // @import 'blocks';

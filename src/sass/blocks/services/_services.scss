@@ -4,13 +4,6 @@
     background: rgba(26, 26, 26, 1);
     position: relative;
     z-index: 1;
-    &__bg {
-        position: absolute;
-        top: 0;
-        right: 50px;
-        opacity: .1;
-        z-index: -1;
-    }
     &__subtitle {
         background: linear-gradient(337deg,$violet 74%,$blue 94%);
             -webkit-background-clip: text;

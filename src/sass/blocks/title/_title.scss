@@ -48,6 +48,10 @@
             font-family: "Fira Sans", Sans-serif;
             color: #FFFF;
         }
+        &_color {
+            color: #A1A1A1;
+            font-family: "Fira Sans", Sans-serif;
+        }
     }
     &_fz16 {
         color: #454545;
@@ -75,6 +79,10 @@
     }
     &_fz20 {
         color: #1A1A1A;
+        font-size: 20px;
+    }
+    &_fz21 {
+        color: #fff;
         font-size: 20px;
     }
     &_fz22 {
