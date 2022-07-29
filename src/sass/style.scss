@@ -42,8 +42,14 @@ h1, h2, h3, h4, h5, h6 {
 @import 'blocks/accordion/accordion';
 @import 'blocks/services/services';
 @import 'blocks/info/info';
-@import 'blocks/image-background';      //Бэкграунды макеты домов
+@import 'blocks/image-background/image-background';      //Бэкграунды макеты домов
 @import 'blocks/advantage/advantage';
+@import 'blocks/stock/stock';
+@import 'blocks/form/form';       // Формы
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';
 
@@ -56,5 +62,10 @@ h1, h2, h3, h4, h5, h6 {
 @import 'blocks/services/services-media';
 @import 'blocks/info/info-media';
 @import 'blocks/advantage/advantage-media';
+@import 'blocks/stock/stock-media';
+@import 'blocks/form/form-media';
+@import 'blocks/image-background/image-background-media';
+// @import 'blocks';
+// @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';

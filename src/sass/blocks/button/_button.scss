@@ -17,4 +17,12 @@
     &_services {
         padding: 15px;
     }
+    &_form {
+        background-image: linear-gradient(120deg, #061533 0%, $violet 100%);
+        border: none;
+        padding: 8px;
+        width: 120px;
+        height: 40px;
+        transform: translateY(50%);
+    }
 }

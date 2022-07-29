@@ -13,6 +13,9 @@
     &_white {
         color: #fff;
     }
+    &_black {
+        color: #1a1a1a;
+    }
     &_fz13 {
         font-family: "Roboto", Sans-serif;
         font-size: 13px;
@@ -31,7 +34,11 @@
         font-weight: 400;
         text-transform: unset;
         &_white {
-            color: white;
+            color: fff;
+        }
+        &_montserrat {
+            font-family: "Montserrat", Sans-serif;
+            color: #fff;
         }
     }
     &_fz15 {
@@ -50,6 +57,10 @@
         }
         &_color {
             color: #A1A1A1;
+            font-family: "Fira Sans", Sans-serif;
+        }
+        &_black {
+            color: #1a1a1a;
             font-family: "Fira Sans", Sans-serif;
         }
     }
@@ -131,5 +142,8 @@
         font-size: 99px;
         font-weight: 800;
         text-shadow: 0px 0px 5px rgb(170 66 243 / 35%);
+    }
+    &_fz120 {
+        font-size: 120px;
     }
 }

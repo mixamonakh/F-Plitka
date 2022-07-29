@@ -2,6 +2,11 @@
     .container {
         max-width: 960px;
     }
+    .title {
+        &_fz120 {
+            line-height: 115px;
+        }
+    }
 }
 
 @media (max-width: 992px) {
@@ -18,6 +23,12 @@
         &_fz14 {
             font-size: 13px;
         }
+        &_fz15 {
+            font-size: 13px;
+        }
+        &_fz21 {
+            font-size: 17px;
+        }
         &_fz22 {
             font-size: 17px;
         }
@@ -29,6 +40,9 @@
         }
         &_fz30 {
             font-size: 16px;
+            &_media {
+                font-size: 22px;
+            }
         }
         &_fz45 {
             font-size: 25px;
@@ -38,9 +52,16 @@
         }
         &_fz80 {
             font-size: 25px;
+            &_media {
+                font-size: 35px;
+            }
         }
         &_fz99 {
             font-size: 43px;
+        }
+        &_fz120 {
+            font-size: 55px;
+            line-height: 50px;
         }
     }
 }

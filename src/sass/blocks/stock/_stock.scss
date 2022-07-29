@@ -1,0 +1,19 @@
+.stock {
+    min-height: 390px;
+    position: relative;
+    padding: 60px 0 50px 0;
+    &__wrapper {
+        display: flex;
+        align-items: center;
+    }
+    &__title {
+        margin-right: 20px;
+    }
+    &__grid {
+        display: grid;
+        grid-template-columns: .5fr 1fr;
+        grid-template-rows: 250px;
+        gap: 50px;
+        position: relative;
+    }
+}

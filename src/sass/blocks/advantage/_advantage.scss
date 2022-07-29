@@ -1,5 +1,5 @@
 .advantage {
-    min-height: 650px;
+    min-height: 730px;
     position: relative;
     background: rgba(26, 26, 26, 1);
     padding: 60px 0;
@@ -15,7 +15,7 @@
     gap: 30px 10px;
     &__picture {
         background-color: transparent;
-        background-image: linear-gradient(120deg, #0057FF 0%, #AA42F3 75%);
+        background-image: linear-gradient(120deg, $blue 0%, $violet 75%);
         width: 100%;
         height: 130px;
         display: flex;
@@ -26,6 +26,9 @@
         display: grid;
         grid-template-columns: 70px 270px;
         gap: 10px;
+        &:hover {
+            background-color: rgba(196, 196, 196, .1);
+        }
     }
     &__text {
         transform: translateY(25%);
