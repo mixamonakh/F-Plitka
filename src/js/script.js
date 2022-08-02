@@ -96,7 +96,6 @@ $(function() {
   
 });
 
-const baguetteBox = require('baguettebox.js');
 window.addEventListener('load', function() {
-  baguetteBox.run('.gallery');
+  baguetteBox.run('.portfolio-gallery');
 });
