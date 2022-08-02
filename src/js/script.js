@@ -85,3 +85,18 @@ closeElement.addEventListener('click', () => {
     menuMob.classList.remove('active');
     burger.classList.remove('hamburger_actives')
 });
+
+$(function() {
+  
+  $('ul.portfolio__tabs').on('click', 'li:not(.portfolio__tab_active)', function() {
+    $(this)
+      .addClass('portfolio__tab_active').siblings().removeClass('portfolio__tab_active')
+      .closest('div.container').find('div.portfolio__content').removeClass('portfolio__content_active').eq($(this).index()).addClass('portfolio__content_active');
+  });
+  
+});
+
+const baguetteBox = require('baguettebox.js');
+window.addEventListener('load', function() {
+  baguetteBox.run('.gallery');
+});
