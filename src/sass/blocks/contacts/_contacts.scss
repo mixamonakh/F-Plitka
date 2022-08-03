@@ -1,0 +1,43 @@
+.contacts {
+    padding: 140px 0 0 0;
+    position: relative;
+    background: rgba(26, 26, 26, 1);
+    &__title {
+        margin-bottom: 15px;
+    }
+    &__block {
+        padding: 40px 30px 30px 30px;
+        background-color: #fff;
+        width: 1200px;
+        margin: 0 auto;
+        min-height: 310px;
+    }
+    &__number {
+        a {
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+    &__wrapper {
+        margin-bottom: 5px;
+        width: 350px;
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        &:nth-child(4) {
+            margin-bottom: 30px;
+        }
+    }
+    &__svg {
+        margin-right: 10px;
+    }
+
+    // Карта
+    &__map {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 1000px;
+    }
+}

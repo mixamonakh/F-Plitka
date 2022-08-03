@@ -23,6 +23,8 @@
             width: unset;
             height: unset;
             top: unset;
+            bottom: -50px;
+            z-index: 2;
         }
         &__number {
             width: 70%;

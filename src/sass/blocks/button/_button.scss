@@ -26,3 +26,36 @@
         transform: translateY(50%);
     }
 }
+
+.button-call {
+    &__button {
+        display: flex;
+        align-items: center;
+        position: relative;
+        &:hover .title_fz16 {
+            color: #fff;
+        }
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        line-height: 17px;
+    }
+    &__url {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    &__img {
+        background-color: $blue;
+        border-radius: 100%;
+        padding: 15px;
+    }
+    &__svg {
+        height: 15px;
+    }
+}

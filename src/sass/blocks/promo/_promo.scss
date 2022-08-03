@@ -111,43 +111,11 @@
         height: 100%;
         background-color: rgb(160, 160, 160);
     }
-
-    &__img {
-        background-color: $blue;
-        border-radius: 100%;
-        padding: 15px;
-    }
-    &__svg {
-        height: 15px;
-    }
-
-    &__button {
-        display: flex;
-        align-items: center;
-        position: relative;
-        &:hover .title_fz16 {
-            color: #fff;
-        }
-    }
-    &__text {
-        display: flex;
-        flex-direction: column;
-        margin-left: 10px;
-        line-height: 17px;
-    }
     &__number {
         transition: 1s;
         &:hover {
             color: $blue;
         }
-    }
-    &__url {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        width: 100%;
     }
 }
 

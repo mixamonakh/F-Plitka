@@ -1,0 +1,101 @@
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    .portfolio {
+        min-height: 1000px;
+    }
+    .portfolio-gallery {
+        &_bathroom {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            &-img {
+                &:nth-child(1) {
+                    grid-column: unset;
+                }
+                &:nth-child(2) {
+                    grid-column: unset;
+                }
+                &:nth-child(3) {
+                    grid-column: unset;
+                }
+                &:nth-child(4) {
+                    grid-column: unset;
+                }
+                &:nth-child(5) {
+                    grid-column: unset;
+                }
+            }
+        }
+        &_phototile {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr 1fr;
+        }
+        &_styling {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    .portfolio {
+        min-height: 900px
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    .portfolio {
+        min-height: 1000px;
+        padding: 80px 0 60px 0;
+        &__tabs {
+            flex-wrap: wrap;
+        }
+        &__tab {
+            &:nth-child(3) {
+                width: 500px;
+                text-align: center;
+            }
+        }
+    }
+    .portfolio-gallery {
+        &_bathroom {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+        &_phototile {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+        &_styling {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .portfolio {
+        min-height: 700px;
+        &__tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        &__tab {
+            &:nth-child(3) {
+                width: unset;
+                text-align: unset;
+            }
+        }
+    }
+}

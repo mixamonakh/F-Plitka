@@ -71,4 +71,11 @@
         max-width: 100%;
         padding: 0 10px;
     }
+    .title {
+        &_fz21 {
+            &_tab {
+                font-size: 14px;
+            }
+        }
+    }
 }

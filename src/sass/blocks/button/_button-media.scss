@@ -15,7 +15,7 @@
         max-width: 540px;
     }
     .button {
-        &_phone {
+        &_borderNone {
             border: none;
             &:hover {
                 background-image: unset;
@@ -33,6 +33,11 @@
     .button {
         &_phone {
             padding: 0px 10px;
+        }
+    }
+    .button-call {
+        &_margin {
+            margin: 5px;
         }
     }
 }
