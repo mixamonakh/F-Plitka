@@ -48,7 +48,11 @@ h1, h2, h3, h4, h5, h6 {
 @import 'blocks/form/form';       // Формы
 @import 'blocks/portfolio/portfolio';
 @import 'blocks/contacts/contacts';
-@import 'blocks/styling-page/styling/styling';
+// Страница Укладки плитки
+@import 'blocks/styling-page/brief/brief';
+@import 'blocks/styling-page/sentence/sentence';
+// @import 'blocks';
+// @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';
@@ -67,5 +71,12 @@ h1, h2, h3, h4, h5, h6 {
 @import 'blocks/image-background/image-background-media';
 @import 'blocks/portfolio/portfolio-media';
 @import 'blocks/contacts/contacts-media';
-@import 'blocks/styling-page/styling/styling-media';
+// Страница Укладки плитки - Адаптация
+@import 'blocks/styling-page/brief/brief-media';
+@import 'blocks/styling-page/sentence/sentence-media';
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
+// @import 'blocks';
 // @import 'blocks';

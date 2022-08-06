@@ -11,6 +11,11 @@
         padding-left: 0;
         display: flex;
         justify-content: space-evenly;
+        &_styling {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: end;
+        }
     }
     &__tab {
         list-style-type: none;

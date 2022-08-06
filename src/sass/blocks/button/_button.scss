@@ -25,6 +25,16 @@
         height: 40px;
         transform: translateY(50%);
     }
+    &_brief {
+        padding: 10px 15px 10px 15px;
+    }
+    &_sentence {
+        padding: 10px 15px 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+    }
 }
 
 .button-call {

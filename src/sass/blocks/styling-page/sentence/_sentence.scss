@@ -1,0 +1,32 @@
+.sentence {
+    min-height: 1000px;
+    padding: 40px 0 60px 0;
+    background-color: #fbfbfb;
+    &__grid {
+        display: grid;
+        grid: repeat(3, 1fr) / repeat(3, 1fr);
+        gap: 20px;
+    }
+    &__block {
+        position: relative;
+        background-color: #fff;
+        border: 1px solid rgba(227,227,227,.57);
+        padding: 20px;
+        z-index: 1;
+    }
+    &__img {
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    &__name {
+        padding-bottom: 5px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    &__text {
+        padding-bottom: 15px;
+    }
+}

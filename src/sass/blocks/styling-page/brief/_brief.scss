@@ -1,0 +1,11 @@
+.brief {
+    min-height: 1000px;
+    position: relative;
+    z-index: 1;
+    background-color: #1a1a1a;
+    padding: 60px 0 0 0;
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
