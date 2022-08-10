@@ -27,13 +27,24 @@
     }
     &_brief {
         padding: 10px 15px 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        div {
+            &:nth-child(1) {
+                margin-right: 30px;
+            }
+        }
     }
     &_sentence {
         padding: 10px 15px 10px 15px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 0 auto;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 

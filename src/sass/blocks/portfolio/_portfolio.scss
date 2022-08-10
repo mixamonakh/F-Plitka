@@ -81,4 +81,7 @@
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
     }
+    &_tile {
+        grid: repeat(2, 1fr) / repeat(3, 1fr);
+    }
 }

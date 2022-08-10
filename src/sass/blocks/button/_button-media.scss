@@ -8,6 +8,16 @@
     .container {
         max-width: 720px;
     }
+    .button {
+        &_brief {
+            padding: 8px 2px 8px 5px;
+            div {
+                &:nth-child(1) {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 768px) {

@@ -56,6 +56,11 @@
         padding: 80px 0 60px 0;
         &__tabs {
             flex-wrap: wrap;
+            &_column {
+                flex-wrap: unset;
+                flex-direction: column;
+                align-items: center;
+            }
         }
         &__tab {
             &:nth-child(3) {
@@ -77,6 +82,9 @@
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(5, 1fr);
         }
+        &_tile {
+            grid: repeat(3,1fr)/repeat(2,1fr);
+        }
     }
 }
 
@@ -96,6 +104,11 @@
                 width: unset;
                 text-align: unset;
             }
+        }
+    }
+    .portfolio-gallery {
+        &_tile {
+            grid: repeat(6, 1fr)/ 1fr;
         }
     }
 }

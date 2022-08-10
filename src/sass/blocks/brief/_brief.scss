@@ -1,0 +1,26 @@
+.brief {
+    min-height: 1000px;
+    position: relative;
+    z-index: 1;
+    background-color: #1a1a1a;
+    padding: 60px 0 0 0;
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &__img {
+        align-self: center;
+    }
+    &__picture {
+        width: 100%;
+        z-index: 1;
+    }
+    &__buttons {
+        display: flex;
+        a {
+            &:nth-child(1) {
+                margin-right: 40px;
+            }
+        }
+    }
+}

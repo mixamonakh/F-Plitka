@@ -4,7 +4,7 @@
     background-color: #fbfbfb;
     &__grid {
         display: grid;
-        grid: repeat(3, 1fr) / repeat(3, 1fr);
+        grid: repeat(3, minmax(660px, auto)) / repeat(3, 1fr);
         gap: 20px;
     }
     &__block {
