@@ -98,10 +98,18 @@
             font-family: "Montserrat", Sans-serif;
             font-weight: 700;
         }
+        &_color {
+            color: #fff;
+            font-family: "Fira Sans", Sans-serif;
+            font-weight: 600;
+        }
     }
     &_fz20 {
         color: #1A1A1A;
         font-size: 20px;
+        &_lowercase {
+            text-transform: lowercase;
+        }
     }
     &_fz21 {
         color: #fff;

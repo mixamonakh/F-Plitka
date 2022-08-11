@@ -4,6 +4,11 @@
     background: rgba(26, 26, 26, 1);
     position: relative;
     z-index: 1;
+    &_phototile {
+        background: unset;
+        padding: unset;
+        min-height: unset;
+    }
     &__subtitle {
         background: linear-gradient(337deg,$violet 74%,$blue 94%);
             -webkit-background-clip: text;
@@ -20,14 +25,49 @@
     &__grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        // модификатор для страницы phototile
+        &_phototile {
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    }
+    &__text {
+        margin-bottom: 20px;
+        // модификатор для страницы phototile
+        &_phototile {
+            margin-bottom: 0;
+        }
     }
     &__block {
         display: flex;
         flex-direction: column;
         margin: 0 auto;
+        // Спойлер
+        details {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            div {
+                margin-left: 15px;
+            }
+        }
     }
-    &__text {
-        margin-bottom: 20px;
+    // Спойлер Анимация
+    @keyframes text {
+        0%   {
+            max-height: 0;
+        }
+        100% {
+            max-height: 15em;
+        }
+    }
+    &__block {
+        details[open] {
+            animation: text 1s;
+        }
+    }
+    &__details {
+        margin-top: 10px;
     }
 }
 

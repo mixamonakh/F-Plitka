@@ -71,6 +71,9 @@
             grid-template-columns: unset;
             grid-template-rows: repeat(3, 1fr);
             row-gap: 15px;
+            &_phototile {
+                grid-template-rows: .9fr 1fr;
+            }
         }
         &__block {
             border: 1px solid #FFFFFF54;
@@ -106,6 +109,9 @@
         padding: 35px 0 80px 0;
         &__grid {
             grid-template-rows: .9fr 1fr .9fr;
+            &_phototile {
+                grid-template-rows: .9fr 1fr;
+            }
         }
     }
     .services-picture {
