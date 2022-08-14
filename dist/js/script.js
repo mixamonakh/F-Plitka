@@ -99,3 +99,15 @@ $(function() {
 window.addEventListener('load', function() {
   baguetteBox.run('.portfolio-gallery');
 });
+
+$(document).ready(function(){
+  $('.slider').slick({
+    dots: true,
+    speed: 700,
+    adaptiveHeight: true,
+    // autoplay: true,
+    // autoplaySpeed: 5000,
+    fade: true,
+    cssEase: 'linear'
+  });
+});

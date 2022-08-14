@@ -1,0 +1,12 @@
+.solutions {
+    background-color: #fbfbfb;
+    min-height: 1000px;
+    padding: 70px 0 50px 0;
+    position: relative;
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        gap: 20px;
+    }
+}

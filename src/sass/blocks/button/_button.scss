@@ -46,6 +46,13 @@
         left: 50%;
         transform: translateX(-50%);
     }
+    &_solutions {
+        padding: 10px 15px 10px 15px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
 
 .button-call {

@@ -51,8 +51,9 @@ h1, h2, h3, h4, h5, h6 {
 // Страница Укладки плитки
 @import 'blocks/brief/brief';
 @import 'blocks/sentence/sentence';
-// @import 'blocks';
-// @import 'blocks';
+// Страница Фотоплитка
+@import 'blocks/solutions/solutions';
+@import 'blocks/slider/slider';
 // @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';
@@ -74,8 +75,9 @@ h1, h2, h3, h4, h5, h6 {
 // Страница Укладки плитки - Адаптация
 @import 'blocks/brief/brief-media';
 @import 'blocks/sentence/sentence-media';
-// @import 'blocks';
-// @import 'blocks';
+// Страница Фотоплитка - Адаптация
+@import 'blocks/solutions/solutions-media';
+@import 'blocks/slider/slider-media';
 // @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';
