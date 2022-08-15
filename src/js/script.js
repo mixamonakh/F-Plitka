@@ -86,6 +86,28 @@ closeElement.addEventListener('click', () => {
     burger.classList.remove('hamburger_actives')
 });
 
+
+
+//БугаттиБокс ( галерея )
+
+window.addEventListener('load', function() {
+  baguetteBox.run('.portfolio-gallery');
+});
+
+// Слик слайдер
+
+$(document).ready(function(){
+  $('.slider').slick({
+    dots: true,
+    speed: 700,
+    // adaptiveHeight: true,
+    // autoplay: true,
+    // autoplaySpeed: 5000,
+    fade: true,
+    cssEase: 'linear'
+  });
+});
+
 $(function() {
   
   $('ul.portfolio__tabs').on('click', 'li:not(.portfolio__tab_active)', function() {
@@ -94,20 +116,9 @@ $(function() {
       .closest('div.container').find('div.portfolio__content').removeClass('portfolio__content_active').eq($(this).index()).addClass('portfolio__content_active');
   });
   
-});
-
-window.addEventListener('load', function() {
-  baguetteBox.run('.portfolio-gallery');
-});
-
-$(document).ready(function(){
-  $('.slider').slick({
-    dots: true,
-    speed: 700,
-    adaptiveHeight: true,
-    // autoplay: true,
-    // autoplaySpeed: 5000,
-    fade: true,
-    cssEase: 'linear'
+  $('ul.solutions__tabs').on('click', 'li:not(.solutions__tab_active)', function() {
+    $(this)
+      .addClass('solutions__tab_active').siblings().removeClass('solutions__tab_active')
+      .closest('div.container').find('div.solutions__content').removeClass('solutions__content_active').eq($(this).index()).addClass('solutions__content_active');
   });
 });
