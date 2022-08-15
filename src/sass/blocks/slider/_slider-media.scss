@@ -1,0 +1,36 @@
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    .slider {
+        height: 400px;
+        .slick-prev {
+            top: 92%;
+        }
+        .slick-next {
+            top: 92%;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .slider {
+        height: 300px;
+    }
+}

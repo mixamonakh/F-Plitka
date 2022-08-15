@@ -14,6 +14,14 @@ var slider = tns({
     speed: 400
 });
 
+$(function() {
+  $('ul.portfolio__tabs').on('click', 'li:not(.portfolio__tab_active)', function() {
+    $(this)
+      .addClass('portfolio__tab_active').siblings().removeClass('portfolio__tab_active')
+      .closest('div.container').find('div.portfolio__content').removeClass('portfolio__content_active').eq($(this).index()).addClass('portfolio__content_active');
+  });
+});
+
 document.querySelector('.promo-arrows__prev').addEventListener('click', function () {
     slider.goTo('prev');
 });
@@ -104,17 +112,19 @@ $(document).ready(function(){
     // autoplay: true,
     // autoplaySpeed: 5000,
     fade: true,
-    cssEase: 'linear'
+    cssEase: 'linear',
+    responsive: [{
+
+      breakpoint: 576,
+      settings: {
+        arrows: false
+      }
+
+    }]
   });
 });
 
 $(function() {
-  
-  $('ul.portfolio__tabs').on('click', 'li:not(.portfolio__tab_active)', function() {
-    $(this)
-      .addClass('portfolio__tab_active').siblings().removeClass('portfolio__tab_active')
-      .closest('div.container').find('div.portfolio__content').removeClass('portfolio__content_active').eq($(this).index()).addClass('portfolio__content_active');
-  });
   
   $('ul.solutions__tabs').on('click', 'li:not(.solutions__tab_active)', function() {
     $(this)

@@ -84,4 +84,7 @@
     &_tile {
         grid: repeat(2, 1fr) / repeat(3, 1fr);
     }
+    &_photo-tile {
+        grid: repeat(2, 1fr) / repeat(3, 1fr);
+    }
 }

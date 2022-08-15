@@ -85,6 +85,9 @@
         &_tile {
             grid: repeat(3,1fr)/repeat(2,1fr);
         }
+        &_photo-tile {
+            grid: repeat(3,1fr)/repeat(2,1fr);
+        }
     }
 }
 
@@ -108,6 +111,9 @@
     }
     .portfolio-gallery {
         &_tile {
+            grid: repeat(6, 1fr)/ 1fr;
+        }
+        &_photo-tile {
             grid: repeat(6, 1fr)/ 1fr;
         }
     }

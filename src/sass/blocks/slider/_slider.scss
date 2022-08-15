@@ -53,14 +53,18 @@
     }
     .slick-prev {
         position: absolute;
-        left: 46%;
-        top: 96%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 94%;
         z-index: 2;
+        margin-left: -20px;
     }
     .slick-next {
         position: absolute;
-        left: 53%;
-        top: 96%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 94%;
         z-index: 2;
+        margin-left: 20px;
     }
 }
