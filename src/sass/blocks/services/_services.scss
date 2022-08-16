@@ -9,6 +9,9 @@
         padding: unset;
         min-height: unset;
     }
+    &_pdng90 {
+        padding: 70px 0 90px 0;
+    }
     &__subtitle {
         background: linear-gradient(337deg,$violet 74%,$blue 94%);
             -webkit-background-clip: text;
@@ -29,11 +32,14 @@
         &_phototile {
             grid-template-columns: 1fr 1fr;
         }
+        &_bathroom {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
     &__text {
         margin-bottom: 20px;
         // модификатор для страницы phototile
-        &_phototile {
+        &_mb0 {
             margin-bottom: 0;
         }
     }
@@ -57,7 +63,7 @@
             max-height: 0;
         }
         100% {
-            max-height: 15em;
+            max-height: 35em;
         }
     }
     &__block {

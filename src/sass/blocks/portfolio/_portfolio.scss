@@ -1,5 +1,4 @@
 .portfolio {
-    min-height: 1300px;
     padding: 60px 0;
     position: relative;
     background: rgba(26, 26, 26, 1);
@@ -81,10 +80,7 @@
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
     }
-    &_tile {
-        grid: repeat(2, 1fr) / repeat(3, 1fr);
-    }
-    &_photo-tile {
+    &_3Col {
         grid: repeat(2, 1fr) / repeat(3, 1fr);
     }
 }

@@ -11,7 +11,9 @@ var slider = tns({
     swipeAngle: false,
     nav: false,
     controls: false,
-    speed: 400
+    speed: 400,
+    autoplay: true,
+    autoplayButtonOutput: false
 });
 
 $(function() {
@@ -108,9 +110,6 @@ $(document).ready(function(){
   $('.slider').slick({
     dots: true,
     speed: 700,
-    // adaptiveHeight: true,
-    // autoplay: true,
-    // autoplaySpeed: 5000,
     fade: true,
     cssEase: 'linear',
     responsive: [{

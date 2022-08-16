@@ -2,9 +2,6 @@
     .container {
         max-width: 960px;
     }
-    .portfolio {
-        min-height: 1000px;
-    }
     .portfolio-gallery {
         &_bathroom {
             grid-template-columns: repeat(3, 1fr);
@@ -42,9 +39,6 @@
     .container {
         max-width: 720px;
     }
-    .portfolio {
-        min-height: 900px
-    }
 }
 
 @media (max-width: 768px) {
@@ -52,7 +46,6 @@
         max-width: 540px;
     }
     .portfolio {
-        min-height: 1000px;
         padding: 80px 0 60px 0;
         &__tabs {
             flex-wrap: wrap;
@@ -82,10 +75,7 @@
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(5, 1fr);
         }
-        &_tile {
-            grid: repeat(3,1fr)/repeat(2,1fr);
-        }
-        &_photo-tile {
+        &_3Col {
             grid: repeat(3,1fr)/repeat(2,1fr);
         }
     }
@@ -97,7 +87,6 @@
         padding: 0 10px;
     }
     .portfolio {
-        min-height: 700px;
         &__tabs {
             flex-direction: column;
             align-items: center;
@@ -113,8 +102,8 @@
         &_tile {
             grid: repeat(6, 1fr)/ 1fr;
         }
-        &_photo-tile {
-            grid: repeat(6, 1fr)/ 1fr;
+        &_3Col {
+            grid: repeat(3, 1fr)/ repeat(2, 1fr);
         }
     }
 }
