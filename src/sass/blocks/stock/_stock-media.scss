@@ -3,6 +3,7 @@
         max-width: 960px;
     }
     .stock {
+        min-height: 660px;
         &__wrapper {
             display: unset;
         }
@@ -14,6 +15,7 @@
         max-width: 720px;
     }
     .stock {
+        min-height: 770px;
         &__grid {
             gap: 30px;
         }

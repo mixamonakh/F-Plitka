@@ -271,7 +271,7 @@
                 <div class="services__block wow animate__animated animate__zoomInLeft">     <!-- Косметический ремонт -->
                     <div class="services-picture">
                         <img src="img/services/background_block.jpg" alt="background" class="services-picture__background">
-                        <img src="img/services/services-card-one.jpg" alt="bathroom" class="services-picture__img">
+                        <img src="img/services/bathroom/services-card-one.jpg" alt="redecorating" class="services-picture__img">
                     </div>
                     <h3 class="title title_fz23 services__caption">
                         Косметический
@@ -314,7 +314,7 @@
                 <div class="services__block wow animate__animated animate__zoomInRight">        <!-- Капитальный ремонт -->
                     <div class="services-picture">
                         <img src="img/services/background_block.jpg" alt="background" class="services-picture__background">
-                        <img src="img/services/services-card-three.jpg" alt="bathroom" class="services-picture__img">
+                        <img src="img/services/bathroom/services-card-two.jpg" alt="overhaul" class="services-picture__img">
                     </div>
                     <h3 class="title title_fz23 services__caption">
                         капитальный
@@ -359,7 +359,7 @@
                 <div class="services__block wow animate__animated animate__zoomInRight">        <!-- Евро ремонт -->
                     <div class="services-picture">
                         <img src="img/services/background_block.jpg" alt="background" class="services-picture__background">
-                        <img src="img/services/services-card-three.jpg" alt="bathroom" class="services-picture__img">
+                        <img src="img/services/bathroom/services-card-three.jpg" alt="renovation" class="services-picture__img">
                     </div>
                     <h3 class="title title_fz23 services__caption">
                         евро
@@ -673,17 +673,37 @@
                         Оставьте заявку прямо сейчас
                     </div>
                     <form action="" class="form__wrapper">      <!-- Заявка -->
-                        <div class="form__select">
+                        <div class="form__select">      <!-- Услуга -->
                             <select name="service" id="service" class="title title_fz15 title_fz15_black">
-                                <option value="repair">Ремонт ванных</option>
-                                <option value="styling">Укладка плитки</option>
-                                <option value="phototile">Фотоплитка</option>
+                                    <option value="redecorating">Косметический ремонт</option>
+                                    <option value="overhaul">Капитальный ремонт</option>
+                                    <option value="renovation">Евро ремонт</option>
                             </select>
                             <label for="service" class="title title_fz14 title_fz14_montserrat">Услуга</label>
                         </div>
-                        <div class="form__input">
-                            <div class="form__number">
-                                <input name="phone" type="phone">
+                        <div class="form__input">   <!-- Площадь + Арес -->
+                            <div class="form__block">
+                                <input name="address" type="text" class="title title_fz15 title_fz15_black">
+                                <label for="address" class="title title_fz14 title_fz14_montserrat">Адрес</label>
+                            </div>
+                            <div class="form__block form__block_width">
+                                <input name="square" type="number" class="title title_fz15 title_fz15_black" placeholder="м&#178;">
+                                <label for="square" class="title title_fz14 title_fz14_montserrat">Площадь</label>
+                            </div>
+                        </div>
+                        <div class="form__input">       <!-- Имя + Емаил -->
+                            <div class="form__block">
+                                <input name="email" type="email" class="title title_fz15 title_fz15_black">
+                                <label for="email" class="title title_fz14 title_fz14_montserrat">Ваша почта</label>
+                            </div>
+                            <div class="form__block form__block_width">
+                                <input name="name" type="text" class="title title_fz15 title_fz15_black">
+                                <label for="name" class="title title_fz14 title_fz14_montserrat">Ваше имя</label>
+                            </div>
+                        </div>
+                        <div class="form__input">   <!-- Телефон + Кнопка -->
+                            <div class="form__block">
+                                <input name="phone" type="tel" class="title title_fz15 title_fz15_black">
                                 <label for="phone" class="title title_fz14 title_fz14_montserrat">Ваш телефон</label>
                             </div>
                             <button class="button button_form title title_fz15 title_fz15_font">
@@ -703,6 +723,35 @@
                     </div>
                     <div class="titile title_gradient title_fz30 title_fz30_media stock__subtitle wow animate__animated animate__fadeInRight">
                         При заказе с сайта
+                    </div>
+                    <div class="form form_calc wow animate__animated animate__fadeInRight">     <!-- Калькулятор -->
+                        <h2 class="form_calc__title title title_black title_fz21">
+                            Рассчет стоимости
+                        </h2>
+                        <div class="form_calc__subtitle title title_fz15 title_fz15_font">
+                            В стоимость уже включены все сопутствующие работы.
+                        </div>
+                        <form action="" class="form-calc">
+                            <div class="form-calc__select">
+                                <select name="serv" id="serv" class="form-calc__serv title title_fz15 title_fz15_black">
+                                    <option value="100">Косметический ремонт</option>
+                                    <option value="300">Капитальный ремонт</option>
+                                    <option value="500">Евро ремонт</option>
+                                </select>
+                                <label for="serv" class="title title_fz14 title_fz14_montserrat">Выберите нужную вам услугу</label>
+                            </div>
+                            <div class="form-calc__wrapper">
+                                <div class="form-calc__block">
+                                    <input type="number" value="" class="square title title_fz15 title_fz15_black" name="square" placeholder="м&#178;">
+                                    <label for="square" class="title title_fz14 title_fz14_montserrat">Введите площадь</label>
+                                </div>
+                                <div id="summ" class="title title_fz25 title_fz25_font">0 руб.</div>
+                                <div class="form-calc__block">
+                                    <input type="text" value="" class="kypon title title_fz15 title_fz15_black" name="kyp" placeholder="Ваш купон: 7778">
+                                    <label for="kyp" class="title title_fz14 title_fz14_montserrat">Введите купон для скидки</label>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -868,6 +917,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>     <!-- Тини Слайдер для хедера -->
     <script src="https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.js" async></script>        <!-- БугаттиБокс - Скрипт для реализации Табов к Галереи -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>       <!-- Слик слайдер скрипт -->
+    <script src="js/calc.js"></script>
     <script src="js/script.js"></script>        <!-- Основной файл JS -->
 </body>
 </html>

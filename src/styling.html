@@ -318,7 +318,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:svgjs="http://svgjs.com/svgjs" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M9.46967 5.46967C9.76256 5.17678 10.2374 5.17678 10.5303 5.46967L16.5303 11.4697C16.8232 11.7626 16.8232 12.2374 16.5303 12.5303L10.5303 18.5303C10.2374 18.8232 9.76256 18.8232 9.46967 18.5303C9.17678 18.2374 9.17678 17.7626 9.46967 17.4697L14.9393 12L9.46967 6.53033C9.17678 6.23744 9.17678 5.76256 9.46967 5.46967Z" class="color030D45 svgShape" clip-rule="evenodd"/></svg></svg>
                             </div>
                         </a>
-                        <a href="" class="title title_fz15 title_fz15_font button button_brief">
+                        <a href="#calc" class="title title_fz15 title_fz15_font button button_brief">
                             <div>
                                 Рассчитать стоимость
                             </div>
@@ -772,17 +772,42 @@
                         Оставьте заявку прямо сейчас
                     </div>
                     <form action="" class="form__wrapper">      <!-- Заявка -->
-                        <div class="form__select">
+                        <div class="form__select">      <!-- Услуга -->
                             <select name="service" id="service" class="title title_fz15 title_fz15_black">
-                                <option value="repair">Ремонт ванных</option>
-                                <option value="styling">Укладка плитки</option>
-                                <option value="phototile">Фотоплитка</option>
+                                    <option value="styling">Укладка плитки на пол</option>
+                                    <option value="stoneware">Укладка керамогранита на пол</option>
+                                    <option value="kitchen">Укладка куханного фартука</option>
+                                    <option value="granite">Укладка гранита</option>
+                                    <option value="largeStoneware">Укладка крупноформатного керамогранита</option>
+                                    <option value="stage">Укладка ступени</option>
+                                    <option value="mosaic">Укладка мозаики</option>
+                                    <option value="hammam">Облицовка хаммама</option>
                             </select>
                             <label for="service" class="title title_fz14 title_fz14_montserrat">Услуга</label>
                         </div>
-                        <div class="form__input">
-                            <div class="form__number">
-                                <input name="phone" type="phone">
+                        <div class="form__input">   <!-- Площадь + Арес -->
+                            <div class="form__block">
+                                <input name="address" type="text" class="title title_fz15 title_fz15_black">
+                                <label for="address" class="title title_fz14 title_fz14_montserrat">Адрес</label>
+                            </div>
+                            <div class="form__block form__block_width">
+                                <input name="square" type="number" class="title title_fz15 title_fz15_black" placeholder="м&#178;">
+                                <label for="square" class="title title_fz14 title_fz14_montserrat">Площадь</label>
+                            </div>
+                        </div>
+                        <div class="form__input">       <!-- Имя + Емаил -->
+                            <div class="form__block">
+                                <input name="email" type="email" class="title title_fz15 title_fz15_black">
+                                <label for="email" class="title title_fz14 title_fz14_montserrat">Ваша почта</label>
+                            </div>
+                            <div class="form__block form__block_width">
+                                <input name="name" type="text" class="title title_fz15 title_fz15_black">
+                                <label for="name" class="title title_fz14 title_fz14_montserrat">Ваше имя</label>
+                            </div>
+                        </div>
+                        <div class="form__input">   <!-- Телефон + Кнопка -->
+                            <div class="form__block">
+                                <input name="phone" type="tel" class="title title_fz15 title_fz15_black">
                                 <label for="phone" class="title title_fz14 title_fz14_montserrat">Ваш телефон</label>
                             </div>
                             <button class="button button_form title title_fz15 title_fz15_font">
@@ -791,7 +816,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="stock__block">      <!-- Скидка -->
+                <div class="stock__block" id="calc">      <!-- Скидка -->
                     <div class="stock__wrapper">
                         <h2 class="title title_black title_fz80 title_fz80_media stock__title">
                             СКИДКА
@@ -802,6 +827,39 @@
                     </div>
                     <div class="titile title_gradient title_fz30 title_fz30_media stock__subtitle wow animate__animated animate__fadeInRight">
                         При заказе с сайта
+                    </div>
+                    <div class="form form_calc wow animate__animated animate__fadeInRight">     <!-- Калькулятор -->
+                        <h2 class="form_calc__title title title_black title_fz21">
+                            Рассчет стоимости
+                        </h2>
+                        <div class="form_calc__subtitle title title_fz15 title_fz15_font">
+                            В стоимость уже включены все сопутствующие работы.
+                        </div>
+                        <form action="" class="form-calc">
+                            <div class="form-calc__select">
+                                <select name="serv" id="serv" class="form-calc__serv title title_fz15 title_fz15_black">
+                                    <option value="0">Укладка плитки на пол</option>
+                                    <option value="300">Укладка керамогранита на пол</option>
+                                    <option value="800">Укладка куханного фартука</option>
+                                    <option value="1200">Укладка гранита</option>
+                                    <option value="1500">Укладка крупноформатного керамогранита</option>
+                                    <option value="1700">Укладка ступени</option>
+                                    <option value="1900">Укладка мозаики</option>
+                                </select>
+                                <label for="serv" class="title title_fz14 title_fz14_montserrat">Выберите нужную вам услугу</label>
+                            </div>
+                            <div class="form-calc__wrapper">
+                                <div class="form-calc__block">
+                                    <input type="number" value="" class="square title title_fz15 title_fz15_black" name="square" placeholder="м&#178;">
+                                    <label for="square" class="title title_fz14 title_fz14_montserrat">Введите площадь</label>
+                                </div>
+                                <div id="summ" class="title title_fz25 title_fz25_font">0 руб.</div>
+                                <div class="form-calc__block">
+                                    <input type="text" value="" class="kypon title title_fz15 title_fz15_black" name="kyp" placeholder="Ваш купон: 7778">
+                                    <label for="kyp" class="title title_fz14 title_fz14_montserrat">Введите купон для скидки</label>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -991,6 +1049,7 @@
     <script src="js/wow.min.js"></script>       <!-- Плагин анимаций скроллинга WoW -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>     <!-- Тини Слайдер для хедера -->
     <script src="https://cdn.jsdelivr.net/npm/baguettebox.js@1.11.1/dist/baguetteBox.js" async></script>        <!-- БугаттиБокс - Скрипт для реализации Табов к Галереи -->
+    <script src="js/calc.js"></script>      <!-- Калькулятор стоимости -->
     <script src="js/script.js"></script>        <!-- Основной файл JS -->
 </body>
 </html>

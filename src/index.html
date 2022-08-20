@@ -592,7 +592,7 @@
                         Оставьте заявку прямо сейчас
                     </div>
                     <form action="" class="form__wrapper">      <!-- Заявка -->
-                        <div class="form__select">
+                        <div class="form__select">      <!-- Услуга -->
                             <select name="service" id="service" class="title title_fz15 title_fz15_black">
                                 <option value="repair">Ремонт ванных</option>
                                 <option value="styling">Укладка плитки</option>
@@ -600,9 +600,29 @@
                             </select>
                             <label for="service" class="title title_fz14 title_fz14_montserrat">Услуга</label>
                         </div>
-                        <div class="form__input">
-                            <div class="form__number">
-                                <input name="phone" type="phone">
+                        <div class="form__input">   <!-- Площадь + Арес -->
+                            <div class="form__block">
+                                <input name="address" type="text" class="title title_fz15 title_fz15_black">
+                                <label for="address" class="title title_fz14 title_fz14_montserrat">Адрес</label>
+                            </div>
+                            <div class="form__block form__block_width">
+                                <input name="square" type="number" class="title title_fz15 title_fz15_black" placeholder="м&#178;">
+                                <label for="square" class="title title_fz14 title_fz14_montserrat">Площадь</label>
+                            </div>
+                        </div>
+                        <div class="form__input">       <!-- Имя + Емаил -->
+                            <div class="form__block">
+                                <input name="email" type="email" class="title title_fz15 title_fz15_black">
+                                <label for="email" class="title title_fz14 title_fz14_montserrat">Ваша почта</label>
+                            </div>
+                            <div class="form__block form__block_width">
+                                <input name="name" type="text" class="title title_fz15 title_fz15_black">
+                                <label for="name" class="title title_fz14 title_fz14_montserrat">Ваше имя</label>
+                            </div>
+                        </div>
+                        <div class="form__input">   <!-- Телефон + Кнопка -->
+                            <div class="form__block">
+                                <input name="phone" type="tel" class="title title_fz15 title_fz15_black">
                                 <label for="phone" class="title title_fz14 title_fz14_montserrat">Ваш телефон</label>
                             </div>
                             <button class="button button_form title title_fz15 title_fz15_font">

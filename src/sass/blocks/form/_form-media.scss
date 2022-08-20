@@ -11,6 +11,17 @@
     .form {
         width: 340px;
     }
+    .form-calc {
+        &__wrapper {
+            flex-direction: column;
+            #summ {
+                order: 3;
+            }
+        }
+        &__block {
+            width: 75%;
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -26,8 +37,8 @@
             bottom: -50px;
             z-index: 2;
         }
-        &__number {
-            width: 70%;
+        &_calc {
+            width: unset;
         }
     }
 }
@@ -38,17 +49,8 @@
         padding: 0 10px;
     }
     .form {
-        &__number {
-            width: 60%;
-            margin-right: 5px;
-            input {
-                height: 30px;
-                padding: 4px 4px 4px 10px;
-            }
-        }
         &__select {
             select {
-                height: 30px;
                 padding: 4px 4px 4px 10px;
             }
         }
