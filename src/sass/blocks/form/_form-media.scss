@@ -10,6 +10,9 @@
     }
     .form {
         width: 340px;
+        &_stock {
+            height: 530px;
+        }
     }
     .form-calc {
         &__wrapper {
@@ -53,6 +56,9 @@
             select {
                 padding: 4px 4px 4px 10px;
             }
+        }
+        &_modal {
+            width: 300px;
         }
     }
 }

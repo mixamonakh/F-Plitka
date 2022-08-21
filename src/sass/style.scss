@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
+body {
+    position: relative;
+}
+
 // Стили блоков
 
 @import 'blocks/title/title';       // Font-Size
@@ -54,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 // Страница Фотоплитка
 @import 'blocks/solutions/solutions';
 @import 'blocks/slider/slider';
-// @import 'blocks';
+@import 'blocks/modal/modal';       // Модальное окно
 // @import 'blocks';
 // @import 'blocks';
 
@@ -78,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 // Страница Фотоплитка - Адаптация
 @import 'blocks/solutions/solutions-media';
 @import 'blocks/slider/slider-media';
-// @import 'blocks';
+@import 'blocks/modal/modal-media';     // Модальное окно
 // @import 'blocks';
 // @import 'blocks';
 // @import 'blocks';

@@ -16,6 +16,8 @@ var slider = tns({
     autoplayButtonOutput: false
 });
 
+// Табы в галерее
+
 $(function() {
   $('ul.portfolio__tabs').on('click', 'li:not(.portfolio__tab_active)', function() {
     $(this)
@@ -23,6 +25,8 @@ $(function() {
       .closest('div.container').find('div.portfolio__content').removeClass('portfolio__content_active').eq($(this).index()).addClass('portfolio__content_active');
   });
 });
+
+// Кнопки в тини слайдере ( Шапка сайта )
 
 document.querySelector('.promo-arrows__prev').addEventListener('click', function () {
     slider.goTo('prev');
@@ -123,6 +127,8 @@ $(document).ready(function(){
   });
 });
 
+// Табы в секции solutions страницы phototile
+
 $(function() {
   
   $('ul.solutions__tabs').on('click', 'li:not(.solutions__tab_active)', function() {
@@ -131,3 +137,24 @@ $(function() {
       .closest('div.container').find('div.solutions__content').removeClass('solutions__content_active').eq($(this).index()).addClass('solutions__content_active');
   });
 });
+
+// Модальное окно
+
+$('[data-modal=modalHeader]').on('click', function() {
+  $('.overlay, #modalHeader').fadeIn('slow');
+});
+
+// Модальное окно Страница-styling, блок sentence
+
+$('.button_sentence').on('click', function() {
+  $('.overlay, #modalHeader').fadeIn('slow')
+});
+
+// Крестик для модального окна
+$('.modal__close').on('click', function() {
+  $('.overlay, #modalHeader, #modalThanks').fadeOut('slow')
+});
+
+// Маска ввода номера телефона
+
+$('input[name=phone]').mask("+7 (999) 999-99-99");

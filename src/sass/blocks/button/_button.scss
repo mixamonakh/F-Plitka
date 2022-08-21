@@ -16,6 +16,21 @@
     }
     &_services {
         padding: 15px;
+        position: relative;
+        a {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        &_unset {
+            a {
+                position: relative;
+                width: unset;
+            }
+        }
     }
     &_form {
         background-image: linear-gradient(120deg, #061533 0%, $violet 100%);
