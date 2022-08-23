@@ -69,7 +69,6 @@
     .services {
         &__grid {
             grid-template-columns: unset;
-            grid-template-rows: repeat(3, 1fr);
             row-gap: 15px;
             &_phototile {
                 grid-template-rows: .9fr 1fr;
@@ -108,13 +107,12 @@
     .services {
         padding: 35px 0 80px 0;
         &__grid {
-            grid-template-rows: .9fr 1fr .9fr;
             &_phototile {
                 grid-template-rows: .9fr 1fr;
             }
         }
     }
     .services-picture {
-        height: 230px;
+        height: 300px;
     }
 }

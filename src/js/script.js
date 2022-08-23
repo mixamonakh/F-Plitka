@@ -117,7 +117,6 @@ $(document).ready(function(){
     fade: true,
     cssEase: 'linear',
     responsive: [{
-
       breakpoint: 576,
       settings: {
         arrows: false
@@ -158,3 +157,28 @@ $('.modal__close').on('click', function() {
 // Маска ввода номера телефона
 
 $('input[name=phone]').mask("+7 (999) 999-99-99");
+
+$("form").each(function () {
+  $(this).validate({
+    rules: {
+      phone: "required",
+      check: "required"
+    },
+    messages: {
+      phone: NaN,
+      check: NaN
+    },
+    submitHandler: function (form) {
+      $.ajax({
+        type: "POST",
+        url: $(form).attr('action'),
+        data: $(form).serialize()
+      }).done(function () {
+        $(form).find("input").val(""), 
+        $(".overlay, #modalThanks").fadeIn("slow"), 
+        $("form").trigger("reset")
+      });
+      return false;
+    }
+  });
+});
