@@ -1,88 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@use "libs/bootstrap-reboot.min";
 
-@import 'libs/bootstrap-reboot.min';
-@import 'libs/tiny-slider';
+@use "base/variables";
 
-
-@import 'base/variables';
-@import 'base/animate';
-// @import '';
-// @import '';
-
-* {
-    font-family: "Fira Sans", Sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 1140px;
-    margin: 0 auto;
-}
-
-a {
-    text-decoration: none
-}
-a:hover {
-    color: #fff;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    position: relative;
-}
+@use "base/layout";
 
 // Стили блоков
 
-@import 'blocks/title/title';       // Font-Size
-@import 'blocks/button/button';     // Кнопки
-@import 'blocks/promo/promo';
-@import 'blocks/menu/menu';
-@import 'blocks/hamburger/hamburger';
-@import 'blocks/accordion/accordion';
-@import 'blocks/services/services';
-@import 'blocks/info/info';
-@import 'blocks/image-background/image-background';      //Бэкграунды макеты домов
-@import 'blocks/advantage/advantage';
-@import 'blocks/stock/stock';
-@import 'blocks/form/form';       // Формы
-@import 'blocks/portfolio/portfolio';
-@import 'blocks/contacts/contacts';
+@use "blocks/title/title"; // Font-Size
+@use "blocks/button/button"; // Кнопки
+@use "blocks/promo/promo";
+@use "blocks/hamburger/hamburger";
+@use "blocks/services/services";
+@use "blocks/info/info";
+@use "blocks/image-background/image-background"; //Бэкграунды макеты домов
+@use "blocks/advantage/advantage";
+@use "blocks/stock/stock";
+@use "blocks/form/form"; // Формы
+@use "blocks/portfolio/portfolio";
+@use "blocks/contacts/contacts";
 // Страница Укладки плитки
-@import 'blocks/brief/brief';
-@import 'blocks/sentence/sentence';
+@use "blocks/brief/brief";
+@use "blocks/sentence/sentence";
 // Страница Фотоплитка
-@import 'blocks/solutions/solutions';
-@import 'blocks/slider/slider';
-@import 'blocks/modal/modal';       // Модальное окно
-// @import 'blocks';
-// @import 'blocks';
+@use "blocks/solutions/solutions";
+@use "blocks/slider/slider";
 
 // Адаптация:
 
-@import 'blocks/button/button-media';
-@import 'blocks/title/title-media';
-@import 'blocks/hamburger/hamburger-media';
-@import 'blocks/promo/header-media';
-@import 'blocks/services/services-media';
-@import 'blocks/info/info-media';
-@import 'blocks/advantage/advantage-media';
-@import 'blocks/stock/stock-media';
-@import 'blocks/form/form-media';
-@import 'blocks/image-background/image-background-media';
-@import 'blocks/portfolio/portfolio-media';
-@import 'blocks/contacts/contacts-media';
+@use "blocks/button/button-media";
+@use "blocks/title/title-media";
+@use "blocks/hamburger/hamburger-media";
+@use "blocks/promo/header-media";
+@use "blocks/services/services-media";
+@use "blocks/info/info-media";
+@use "blocks/advantage/advantage-media";
+@use "blocks/stock/stock-media";
+@use "blocks/form/form-media";
+@use "blocks/image-background/image-background-media";
+@use "blocks/portfolio/portfolio-media";
+@use "blocks/contacts/contacts-media";
 // Страница Укладки плитки - Адаптация
-@import 'blocks/brief/brief-media';
-@import 'blocks/sentence/sentence-media';
+@use "blocks/brief/brief-media";
+@use "blocks/sentence/sentence-media";
 // Страница Фотоплитка - Адаптация
-@import 'blocks/solutions/solutions-media';
-@import 'blocks/slider/slider-media';
-@import 'blocks/modal/modal-media';     // Модальное окно
-// @import 'blocks';
-// @import 'blocks';
-// @import 'blocks';
+@use "blocks/solutions/solutions-media";
+@use "blocks/slider/slider-media";

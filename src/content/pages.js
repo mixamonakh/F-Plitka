@@ -1,0 +1,1074 @@
+export const pages = {
+  index: {
+    key: "index",
+    path: "/",
+    title: 'Укладка плитки по низким ценам от компании "MSK-STYLE"',
+    description:
+      "Укладка плитки на стену и на пол. Ремонт ванных комнат под ключ. Изготовление и укладка фотоплитки. Всё это и не только выполнят профессионалы из компании MSK-STYLE. Средние цены по рынку и гарантия на все виды работ.",
+    services: ["Ремонт ванных", "Укладка плитки", "Фотоплитка"],
+    calculator: null,
+    galleries: [
+      {
+        title: "Ремонт ванных",
+        className: "portfolio-gallery portfolio-gallery_bathroom",
+        images: [
+          {
+            src: "/img/portfolio/main/bathroom/bathroom_one.jpg",
+            caption: "",
+            className: "portfolio-gallery_bathroom-img",
+          },
+          {
+            src: "/img/portfolio/main/bathroom/bathroom_two.jpg",
+            caption: "",
+            className: "portfolio-gallery_bathroom-img",
+          },
+          {
+            src: "/img/portfolio/main/bathroom/bathroom_three.jpg",
+            caption: "",
+            className: "portfolio-gallery_bathroom-img",
+          },
+          {
+            src: "/img/portfolio/main/bathroom/bathroom_four.jpg",
+            caption: "",
+            className: "portfolio-gallery_bathroom-img",
+          },
+          {
+            src: "/img/portfolio/main/bathroom/bathroom_five.jpg",
+            caption: "",
+            className: "portfolio-gallery_bathroom-img",
+          },
+        ],
+      },
+      {
+        title: "Фотоплитка",
+        className: "portfolio-gallery portfolio-gallery_phototile",
+        images: [
+          {
+            src: "/img/portfolio/main/phototile/phototile_one.jpg",
+            caption: "",
+            className: "portfolio-gallery_phototile-img",
+          },
+          {
+            src: "/img/portfolio/main/phototile/phototile_two.jpg",
+            caption: "",
+            className: "portfolio-gallery_phototile-img",
+          },
+          {
+            src: "/img/portfolio/main/phototile/phototile_three.jpg",
+            caption: "",
+            className: "portfolio-gallery_phototile-img",
+          },
+          {
+            src: "/img/portfolio/main/phototile/phototile_four.jpg",
+            caption: "",
+            className: "portfolio-gallery_phototile-img",
+          },
+          {
+            src: "/img/portfolio/main/phototile/phototile_five.jpg",
+            caption: "",
+            className: "portfolio-gallery_phototile-img",
+          },
+          {
+            src: "/img/portfolio/main/phototile/phototile_six.jpg",
+            caption: "",
+            className: "portfolio-gallery_phototile-img",
+          },
+        ],
+      },
+      {
+        title: "Укладка плитки",
+        className: "portfolio-gallery portfolio-gallery_styling",
+        images: [
+          {
+            src: "/img/portfolio/main/styling/styling_one.jpg",
+            caption: "Укладка керамогранита на пол",
+            className: "portfolio-gallery_styling-img",
+          },
+          {
+            src: "/img/portfolio/main/styling/styling_two.jpg",
+            caption: "Укладка плитки в ванной",
+            className: "portfolio-gallery_styling-img",
+          },
+          {
+            src: "/img/portfolio/main/styling/styling_three.jpg",
+            caption: "Укладка крупноформатного керамогранита",
+            className: "portfolio-gallery_styling-img",
+          },
+          {
+            src: "/img/portfolio/main/styling/styling_four.jpg",
+            caption: "Кухонынй фартук",
+            className: "portfolio-gallery_styling-img",
+          },
+          {
+            src: "/img/portfolio/main/styling/styling_five.jpg",
+            caption: "Кухонынй фартук",
+            className: "portfolio-gallery_styling-img",
+          },
+          {
+            src: "/img/portfolio/main/styling/styling_six.jpg",
+            caption: "Укладка крупноформатного керамогранита",
+            className: "portfolio-gallery_styling-img",
+          },
+          {
+            src: "/img/portfolio/main/styling/styling_seven.jpg",
+            caption: "Укладка ступени",
+            className: "portfolio-gallery_styling-img",
+          },
+          {
+            src: "/img/portfolio/main/styling/styling_eight.jpg",
+            caption: "Укладка ступени",
+            className: "portfolio-gallery_styling-img",
+          },
+          {
+            src: "/img/portfolio/main/styling/styling_nine.jpg",
+            caption: "Укладка гранита",
+            className: "portfolio-gallery_styling-img",
+          },
+        ],
+      },
+    ],
+    portfolioTabsClass: "portfolio__tabs",
+    solutions: null,
+    solutionText: null,
+    nav: [
+      {
+        href: "/index.html",
+        label: "Главная",
+      },
+      {
+        href: "/bathroom.html",
+        label: "Ремонт Ванных",
+      },
+      {
+        href: "/phototile.html",
+        label: "Фотоплитка",
+      },
+      {
+        href: "/styling.html",
+        label: "Укладка плитки",
+      },
+      {
+        href: "/styling.html#tile",
+        label: "Укладка плитки на пол",
+      },
+      {
+        href: "/styling.html#stoneware",
+        label: "Укладка керамогранита на пол",
+      },
+      {
+        href: "/styling.html#kitchen",
+        label: "Укладка плитки на кухонный фартук",
+      },
+      {
+        href: "/styling.html#largeStoneware",
+        label: "Укладка крупноформатного керамогранита",
+      },
+      {
+        href: "/styling.html#granite",
+        label: "Укладка гранита",
+      },
+      {
+        href: "/styling.html#stage",
+        label: "Укладка ступени",
+      },
+      {
+        href: "/styling.html#mosaic",
+        label: "Укладка мозаики",
+      },
+      {
+        href: "/styling.html#hammam",
+        label: "Облицовка хаммама",
+      },
+      {
+        href: "#services",
+        label: "Услуги",
+      },
+      {
+        href: "#advantage",
+        label: "Преимущества",
+      },
+      {
+        href: "#portfolio",
+        label: "Портфолио",
+      },
+      {
+        href: "#info",
+        label: "О нас",
+      },
+      {
+        href: "#contacts",
+        label: "Контакты",
+      },
+    ],
+  },
+  bathroom: {
+    key: "bathroom",
+    path: "/bathroom.html",
+    title: "Ремонт и уникальный дизайн для вашей ванной комнаты.",
+    description:
+      'Ремонт ванных  " Под ключ\t". Укладка плитки на пол и на стены. Бесплатный дизайн-проект ванной комнаты и смета в подарок !',
+    services: ["Косметический ремонт", "Капитальный ремонт", "Евро ремонт"],
+    calculator: null,
+    galleries: [
+      {
+        title: "Косметический",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/bathroom/redecorating/redecorating_one.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/redecorating/redecorating_two.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/redecorating/redecorating_three.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/redecorating/redecorating_four.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/redecorating/redecorating_five.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/redecorating/redecorating_six.jpg",
+            caption: "",
+            className: "",
+          },
+        ],
+      },
+      {
+        title: "Капитальный",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/bathroom/overhaul/overhaul_one.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/overhaul/overhaul_two.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/overhaul/overhaul_three.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/overhaul/overhaul_four.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/overhaul/overhaul_five.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/overhaul/overhaul_six.jpg",
+            caption: "",
+            className: "",
+          },
+        ],
+      },
+      {
+        title: "Евро",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/bathroom/renovation/renovation_one.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/renovation/renovation_two.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/renovation/renovation_three.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/renovation/renovation_four.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/renovation/renovation_five.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/bathroom/renovation/renovation_six.jpg",
+            caption: "",
+            className: "",
+          },
+        ],
+      },
+    ],
+    portfolioTabsClass: "portfolio__tabs portfolio__tabs_column",
+    solutions: null,
+    solutionText: null,
+    nav: [
+      {
+        href: "/index.html",
+        label: "Главная",
+      },
+      {
+        href: "/bathroom.html",
+        label: "Ремонт Ванных",
+      },
+      {
+        href: "/phototile.html",
+        label: "Фотоплитка",
+      },
+      {
+        href: "/styling.html",
+        label: "Укладка плитки",
+      },
+      {
+        href: "/styling.html#tile",
+        label: "Укладка плитки на пол",
+      },
+      {
+        href: "/styling.html#stoneware",
+        label: "Укладка керамогранита на пол",
+      },
+      {
+        href: "/styling.html#kitchen",
+        label: "Укладка плитки на кухонный фартук",
+      },
+      {
+        href: "/styling.html#largeStoneware",
+        label: "Укладка крупноформатного керамогранита",
+      },
+      {
+        href: "/styling.html#granite",
+        label: "Укладка гранита",
+      },
+      {
+        href: "/styling.html#stage",
+        label: "Укладка ступени",
+      },
+      {
+        href: "/styling.html#mosaic",
+        label: "Укладка мозаики",
+      },
+      {
+        href: "/styling.html#hammam",
+        label: "Облицовка хаммама",
+      },
+      {
+        href: "#services",
+        label: "Услуги",
+      },
+      {
+        href: "#advantage",
+        label: "Преимущества",
+      },
+      {
+        href: "#portfolio",
+        label: "Портфолио",
+      },
+      {
+        href: "#info",
+        label: "О нас",
+      },
+      {
+        href: "#contacts",
+        label: "Контакты",
+      },
+    ],
+  },
+  phototile: {
+    key: "phototile",
+    path: "/phototile.html",
+    title: "Изготовление и укладка фотоплитки. Панно с любым изображением!",
+    description:
+      "Перенесём любое фото на плитку. Разработаем уникальный дизайн ванной комнаты и кухонного фартука с использованием фотоплитки и панно. Используем UV печать и деколирование в изготовлении.",
+    services: ["UV печать", "Деколирование"],
+    calculator: [
+      {
+        label: "UV печать",
+        price: 8000,
+      },
+      {
+        label: "Деколирование",
+        price: 15000,
+      },
+    ],
+    galleries: [
+      {
+        title: "Ванная комната",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/photo-tile/bathroom/bathroom_one.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/bathroom/bathroom_two.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/bathroom/bathroom_three.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/bathroom/bathroom_four.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/bathroom/bathroom_five.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/bathroom/bathroom_six.jpg",
+            caption: "",
+            className: "",
+          },
+        ],
+      },
+      {
+        title: "Кухня",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/photo-tile/kitchen/kitchen_one.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/kitchen/kitchen_two.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/kitchen/kitchen_three.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/kitchen/kitchen_four.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/kitchen/kitchen_five.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/kitchen/kitchen_six.jpg",
+            caption: "",
+            className: "",
+          },
+        ],
+      },
+      {
+        title: "Портрет",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/photo-tile/portrait/portrait_one.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/portrait/portrait_two.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/portrait/portrait_three.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/portrait/portrait_four.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/portrait/portrait_five.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/portrait/portrait_six.jpg",
+            caption: "",
+            className: "",
+          },
+        ],
+      },
+      {
+        title: "Бассейн",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/photo-tile/pool/pool_one.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/pool/pool_two.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/pool/pool_three.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/pool/pool_four.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/pool/pool_five.jpg",
+            caption: "",
+            className: "",
+          },
+          {
+            src: "/img/portfolio/photo-tile/pool/pool_six.jpg",
+            caption: "",
+            className: "",
+          },
+        ],
+      },
+    ],
+    portfolioTabsClass: "portfolio__tabs portfolio__tabs_column",
+    solutions: [
+      {
+        title: "Морские пейзажи",
+        slides: [
+          {
+            src: "/img/phototile/slider/sea/sea_one.jpg",
+            title: "Морские пейзажи - #1",
+            price: "5 500 р.",
+          },
+          {
+            src: "/img/phototile/slider/sea/sea_two.jpg",
+            title: "Морские пейзажи - #2",
+            price: "7 500 р.",
+          },
+          {
+            src: "/img/phototile/slider/sea/sea_three.jpg",
+            title: "Морские пейзажи - #3",
+            price: "8 000 р.",
+          },
+          {
+            src: "/img/phototile/slider/sea/sea_four.jpg",
+            title: "Морские пейзажи - #4",
+            price: "3 000 р.",
+          },
+          {
+            src: "/img/phototile/slider/sea/sea_five.jpg",
+            title: "Морские пейзажи - #5",
+            price: "6 000 р.",
+          },
+        ],
+      },
+      {
+        title: "Природа",
+        slides: [
+          {
+            src: "/img/phototile/slider/nature/nature_one.jpg",
+            title: "Природа - #1",
+            price: "7 500 р.",
+          },
+          {
+            src: "/img/phototile/slider/nature/nature_two.jpg",
+            title: "Природа - #2",
+            price: "7 500 р.",
+          },
+          {
+            src: "/img/phototile/slider/nature/nature_three.jpg",
+            title: "Природа - #3",
+            price: "8 000 р.",
+          },
+          {
+            src: "/img/phototile/slider/nature/nature_four.jpg",
+            title: "Природа - #4",
+            price: "3 000 р.",
+          },
+          {
+            src: "/img/phototile/slider/nature/nature_five.jpg",
+            title: "Природа - #5",
+            price: "6 000 р.",
+          },
+        ],
+      },
+      {
+        title: "Архитектура",
+        slides: [
+          {
+            src: "/img/phototile/slider/architecture/architecture_one.jpg",
+            title: "Архитектура - #1",
+            price: "8 000 р.",
+          },
+          {
+            src: "/img/phototile/slider/architecture/architecture_two.jpg",
+            title: "Архитектура - #2",
+            price: "8 000 р.",
+          },
+          {
+            src: "/img/phototile/slider/architecture/architecture_three.jpg",
+            title: "Архитектура - #3",
+            price: "8 000 р.",
+          },
+          {
+            src: "/img/phototile/slider/architecture/architecture_four.jpg",
+            title: "Архитектура - #4",
+            price: "3 000 р.",
+          },
+          {
+            src: "/img/phototile/slider/architecture/architecture_five.jpg",
+            title: "Архитектура - #5",
+            price: "6 000 р.",
+          },
+        ],
+      },
+    ],
+    solutionText:
+      "Фотоплитка - это безграничные возможности для создания уникального интерьера. Вы можете заказть печать абсолютно любого изображения, никаких ограничений нет. Хотите семейное фото ? - Легко ! Хотите морские волны у себя в ванной ? - Пожалуйста ! Или же вам по душе любоваться на старинный замок у себя в гостинной ? - И это тоже можно реализовать с помощью технологии нанесения фото на плитку. Ну а если вдруг вас затрудняет определиться с каким то конкретным изображением, то вы всегда можете воспользоваться нашими Готовыми решениями.",
+    nav: [
+      {
+        href: "/index.html",
+        label: "Главная",
+      },
+      {
+        href: "/bathroom.html",
+        label: "Ремонт Ванных",
+      },
+      {
+        href: "/phototile.html",
+        label: "Фотоплитка",
+      },
+      {
+        href: "/styling.html",
+        label: "Укладка плитки",
+      },
+      {
+        href: "/styling.html#tile",
+        label: "Укладка плитки на пол",
+      },
+      {
+        href: "/styling.html#stoneware",
+        label: "Укладка керамогранита на пол",
+      },
+      {
+        href: "/styling.html#kitchen",
+        label: "Укладка плитки на кухонный фартук",
+      },
+      {
+        href: "/styling.html#largeStoneware",
+        label: "Укладка крупноформатного керамогранита",
+      },
+      {
+        href: "/styling.html#granite",
+        label: "Укладка гранита",
+      },
+      {
+        href: "/styling.html#stage",
+        label: "Укладка ступени",
+      },
+      {
+        href: "/styling.html#mosaic",
+        label: "Укладка мозаики",
+      },
+      {
+        href: "/styling.html#hammam",
+        label: "Облицовка хаммама",
+      },
+      {
+        href: "#services",
+        label: "Услуги",
+      },
+      {
+        href: "#advantage",
+        label: "Преимущества",
+      },
+      {
+        href: "#portfolio",
+        label: "Портфолио",
+      },
+      {
+        href: "#info",
+        label: "О нас",
+      },
+      {
+        href: "#contacts",
+        label: "Контакты",
+      },
+    ],
+  },
+  styling: {
+    key: "styling",
+    path: "/styling.html",
+    title: "Укладка плитки, керамогранита, тротуарной плитки, мозаики, камня.",
+    description:
+      "Все виды работ по укладке плитки и керамогранита. Так же укладываем ступень и гранит. Профессиональная бригада строителей с многолетним стажем выполнит работу на 100% качественно.",
+    services: [
+      "Укладка плитки на пол",
+      "Укладка керамогранита на пол",
+      "Укладка куханного фартука",
+      "Укладка гранита",
+      "Укладка крупноформатного керамогранита",
+      "Укладка ступени",
+      "Укладка мозаики",
+      "Облицовка хаммама",
+    ],
+    calculator: [
+      {
+        label: "Укладка плитки на пол",
+        price: 1400,
+      },
+      {
+        label: "Укладка керамогранита на пол",
+        price: 2000,
+      },
+      {
+        label: "Укладка куханного фартука",
+        price: 1200,
+      },
+      {
+        label: "Укладка гранита",
+        price: 2200,
+      },
+      {
+        label: "Укладка крупноформатного керамогранита",
+        price: 2000,
+      },
+      {
+        label: "Укладка ступени",
+        price: 600,
+      },
+      {
+        label: "Укладка мозаики",
+        price: 3000,
+      },
+    ],
+    galleries: [
+      {
+        title: "Плитка",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/tile/keramica/keramica_one.jpg",
+            caption: "Ванная комната",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/keramica/keramica_two.jpg",
+            caption: "Ванная комната",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/keramica/keramica_three.jpg",
+            caption: "Ванная комната",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/keramica/keramica_four.jpg",
+            caption: "Кухонный фартук",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/keramica/keramica_five.jpg",
+            caption: "Кухонный фартук",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/keramica/keramica_six.jpg",
+            caption: "Облицовка пола",
+            className: "portfolio-gallery_tile-img",
+          },
+        ],
+      },
+      {
+        title: "Керамогранит",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/tile/stoneware/stoneware_one.jpg",
+            caption: "Облицовка стен и пола",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stoneware/stoneware_two.jpg",
+            caption: "Облицовка пола",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stoneware/stoneware_three.jpg",
+            caption: "Крупноформатный керамогранит",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stoneware/stoneware_four.jpg",
+            caption: "Ванная комната",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stoneware/stoneware_five.jpg",
+            caption: "Ванная комната",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stoneware/stoneware_six.jpg",
+            caption: "Кухонный фартук",
+            className: "portfolio-gallery_tile-img",
+          },
+        ],
+      },
+      {
+        title: "Ступень",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/tile/stage/stage_one.jpg",
+            caption: "Гранит",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stage/stage_two.jpg",
+            caption: "Керамогранит",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stage/stage_three.jpg",
+            caption: "Гранит",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stage/stage_four.jpg",
+            caption: "Керамическая плитка",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stage/stage_five.jpg",
+            caption: "Клинкер",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/stage/stage_six.jpg",
+            caption: "Керамическая плитка",
+            className: "portfolio-gallery_tile-img",
+          },
+        ],
+      },
+      {
+        title: "Мозаика",
+        className: "portfolio-gallery portfolio-gallery_3Col",
+        images: [
+          {
+            src: "/img/portfolio/tile/mosaic/mosaic_one.jpg",
+            caption: "Ванная комната",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/mosaic/mosaic_two.jpg",
+            caption: "Ванная комната",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/mosaic/mosaic_three.jpg",
+            caption: "Кухонный фартук",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/mosaic/mosaic_four.jpg",
+            caption: "Кухонный фартук",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/mosaic/mosaic_five.jpg",
+            caption: "Хаммам",
+            className: "portfolio-gallery_tile-img",
+          },
+          {
+            src: "/img/portfolio/tile/mosaic/mosaic_six.jpg",
+            caption: "Ванная комната",
+            className: "portfolio-gallery_tile-img",
+          },
+        ],
+      },
+    ],
+    portfolioTabsClass: "portfolio__tabs portfolio__tabs_column",
+    solutions: null,
+    solutionText: null,
+    nav: [
+      {
+        href: "/index.html",
+        label: "Главная",
+      },
+      {
+        href: "/bathroom.html",
+        label: "Ремонт Ванных",
+      },
+      {
+        href: "/phototile.html",
+        label: "Фотоплитка",
+      },
+      {
+        href: "/styling.html",
+        label: "Укладка плитки",
+      },
+      {
+        href: "/styling.html#tile",
+        label: "Укладка плитки на пол",
+      },
+      {
+        href: "/styling.html#stoneware",
+        label: "Укладка керамогранита на пол",
+      },
+      {
+        href: "/styling.html#kitchen",
+        label: "Укладка плитки на кухонный фартук",
+      },
+      {
+        href: "/styling.html#largeStoneware",
+        label: "Укладка крупноформатного керамогранита",
+      },
+      {
+        href: "/styling.html#granite",
+        label: "Укладка гранита",
+      },
+      {
+        href: "/styling.html#stage",
+        label: "Укладка ступени",
+      },
+      {
+        href: "/styling.html#mosaic",
+        label: "Укладка мозаики",
+      },
+      {
+        href: "/styling.html#hammam",
+        label: "Облицовка хаммама",
+      },
+      {
+        href: "#sentence",
+        label: "Услуги",
+      },
+      {
+        href: "#advantage",
+        label: "Преимущества",
+      },
+      {
+        href: "#portfolio",
+        label: "Портфолио",
+      },
+      {
+        href: "#info",
+        label: "О нас",
+      },
+      {
+        href: "#contacts",
+        label: "Контакты",
+      },
+    ],
+  },
+  confidentiality: {
+    key: "confidentiality",
+    path: "/confidentiality.html",
+    title: "Политика в отношении обработки персональных данных — MSK-STYLE",
+    description:
+      "Политика MSK-STYLE в отношении обработки персональных данных посетителей сайта.",
+    services: ["Ремонт ванных", "Укладка плитки", "Фотоплитка"],
+    calculator: null,
+    galleries: [],
+    portfolioTabsClass: null,
+    solutions: null,
+    solutionText: null,
+    nav: [
+      {
+        href: "/index.html",
+        label: "Главная",
+      },
+      {
+        href: "/bathroom.html",
+        label: "Ремонт Ванных",
+      },
+      {
+        href: "/phototile.html",
+        label: "Фотоплитка",
+      },
+      {
+        href: "/styling.html",
+        label: "Укладка плитки",
+      },
+      {
+        href: "/styling.html#tile",
+        label: "Укладка плитки на пол",
+      },
+      {
+        href: "/styling.html#stoneware",
+        label: "Укладка керамогранита на пол",
+      },
+      {
+        href: "/styling.html#kitchen",
+        label: "Укладка плитки на кухонный фартук",
+      },
+      {
+        href: "/styling.html#largeStoneware",
+        label: "Укладка крупноформатного керамогранита",
+      },
+      {
+        href: "/styling.html#granite",
+        label: "Укладка гранита",
+      },
+      {
+        href: "/styling.html#stage",
+        label: "Укладка ступени",
+      },
+      {
+        href: "/styling.html#mosaic",
+        label: "Укладка мозаики",
+      },
+      {
+        href: "/styling.html#hammam",
+        label: "Облицовка хаммама",
+      },
+      {
+        href: "/styling.html#sentence",
+        label: "Услуги",
+      },
+      {
+        href: "/styling.html#advantage",
+        label: "Преимущества",
+      },
+      {
+        href: "/styling.html#portfolio",
+        label: "Портфолио",
+      },
+      {
+        href: "/styling.html#info",
+        label: "О нас",
+      },
+      {
+        href: "/styling.html#contacts",
+        label: "Контакты",
+      },
+    ],
+  },
+};

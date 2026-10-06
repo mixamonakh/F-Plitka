@@ -8,6 +8,15 @@
 
 # production
 /build
+/dist
+/.prerender
+/reports/
+/.lh
+/playwright-report
+/test-results
+.env
+.env.*
+!.env.example
 
 # misc
 .DS_Store

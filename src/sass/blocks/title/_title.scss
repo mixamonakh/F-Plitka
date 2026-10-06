@@ -1,3 +1,4 @@
+@use '../../base/variables' as *;
 .title {
     color: #FFFFFF;
     font-family: "Montserrat", Sans-serif;
@@ -34,7 +35,7 @@
         font-weight: 400;
         text-transform: unset;
         &_white {
-            color: fff;
+            color: #fff;
         }
         &_montserrat {
             font-family: "Montserrat", Sans-serif;
