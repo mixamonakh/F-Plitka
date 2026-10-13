@@ -1,21 +1,85 @@
-import { useId } from "react";
+import { useId, useRef, useState } from "react";
 import { site } from "../content/site.js";
 
 export function LeadForm({ services }) {
   const id = useId();
+  const inFlight = useRef(false);
+  const [sending, setSending] = useState(false);
+  const [result, setResult] = useState(null);
+  const [service, setService] = useState(services[0]);
+  const isLinear = service === "Укладка ступени";
   const inputClass = "title title_fz15 title_fz15_black";
   const labelClass = "title title_fz14 title_fz14_montserrat";
+
+  async function submit(event) {
+    event.preventDefault();
+    if (inFlight.current) return;
+    const form = event.currentTarget;
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const body = Object.fromEntries(data);
+    body.check = data.get("check") === "on";
+    inFlight.current = true;
+    setSending(true);
+    setResult(null);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(45_000),
+      });
+      const answer = await response.json();
+      if (!response.ok || answer.ok !== true) {
+        setResult({
+          ok: false,
+          message:
+            answer.message || "Не удалось отправить заявку. Попробуйте позже.",
+        });
+        return;
+      }
+      form.reset();
+      setService(services[0]);
+      setResult({
+        ok: true,
+        message: "Заявка отправлена. Мы свяжемся с вами.",
+      });
+    } catch {
+      setResult({
+        ok: false,
+        message:
+          "Не удалось подтвердить отправку. Свяжитесь с нами по телефону или в Telegram.",
+      });
+    } finally {
+      inFlight.current = false;
+      setSending(false);
+    }
+  }
+
   return (
     <form
       className="form__wrapper"
+      action="/api/contact"
+      method="post"
       aria-describedby={`${id}-notice`}
-      onSubmit={(event) => event.preventDefault()}
+      aria-busy={sending}
+      onSubmit={submit}
     >
       <div className="form__select">
         <label htmlFor={`${id}-service`} className={labelClass}>
           Услуга
         </label>
-        <select name="service" id={`${id}-service`} className={inputClass}>
+        <select
+          name="service"
+          id={`${id}-service`}
+          className={inputClass}
+          disabled={sending}
+          onChange={(event) => {
+            if (isLinear !== (event.target.value === "Укладка ступени"))
+              event.target.form.elements.namedItem("square").value = "";
+            setService(event.target.value);
+          }}
+        >
           {services.map((service) => (
             <option key={service}>{service}</option>
           ))}
@@ -29,6 +93,8 @@ export function LeadForm({ services }) {
           <input
             id={`${id}-address`}
             name="address"
+            maxLength={500}
+            disabled={sending}
             autoComplete="street-address"
             className={inputClass}
             placeholder="г. Москва, ул. Перовская, д.1, к.2"
@@ -36,17 +102,18 @@ export function LeadForm({ services }) {
         </div>
         <div className="form__block form__block_width">
           <label htmlFor={`${id}-square`} className={labelClass}>
-            Площадь
+            {isLinear ? "Длина" : "Площадь"}
           </label>
           <input
             id={`${id}-square`}
             name="square"
+            disabled={sending}
             type="number"
             min="0.01"
             step="0.01"
             inputMode="decimal"
             className={inputClass}
-            placeholder="15 м²"
+            placeholder={isLinear ? "15 пог. м" : "15 м²"}
           />
         </div>
       </div>
@@ -58,6 +125,8 @@ export function LeadForm({ services }) {
           <input
             id={`${id}-email`}
             name="email"
+            maxLength={254}
+            disabled={sending}
             type="email"
             autoComplete="email"
             className={inputClass}
@@ -71,6 +140,8 @@ export function LeadForm({ services }) {
           <input
             id={`${id}-name`}
             name="name"
+            maxLength={100}
+            disabled={sending}
             autoComplete="given-name"
             className={inputClass}
             placeholder="Иван"
@@ -85,6 +156,8 @@ export function LeadForm({ services }) {
           <input
             id={`${id}-phone`}
             name="phone"
+            maxLength={32}
+            disabled={sending}
             type="tel"
             autoComplete="tel"
             inputMode="tel"
@@ -95,14 +168,20 @@ export function LeadForm({ services }) {
         </div>
         <button
           type="submit"
-          disabled
+          disabled={sending}
           className="button button_form title title_fz15 title_fz15_font"
         >
-          Отправить
+          {sending ? "Отправляем…" : "Отправить"}
         </button>
       </div>
       <div className="form__input form-consent">
-        <input id={`${id}-check`} name="check" type="checkbox" required />
+        <input
+          id={`${id}-check`}
+          name="check"
+          type="checkbox"
+          required
+          disabled={sending}
+        />
         <label
           htmlFor={`${id}-check`}
           className="title title_fz15 title_fz15_font title_fz15_unset form__check"
@@ -111,10 +190,15 @@ export function LeadForm({ services }) {
           <a href="/confidentiality.html">персональных данных</a>
         </label>
       </div>
+      {result && (
+        <p className="form-notice" role={result.ok ? "status" : "alert"}>
+          {result.message}
+        </p>
+      )}
       <p id={`${id}-notice`} className="form-notice">
-        Онлайн-отправка временно недоступна. Свяжитесь с нами:{" "}
+        Также можно связаться с нами:{" "}
         <a href={site.phoneHref}>{site.phoneLabel}</a> или{" "}
-        <a href={site.whatsappHref}>WhatsApp</a>.
+        <a href={site.telegramHref}>Telegram</a>.
       </p>
     </form>
   );

@@ -7,7 +7,6 @@ export function Tabs({
   buttonClassName,
   activeClassName,
   label,
-  motion,
 }) {
   return (
     <div className={className} role="tablist" aria-label={label}>
@@ -17,7 +16,6 @@ export function Tabs({
           type="button"
           id={`${id}-tab-${index}`}
           role="tab"
-          data-motion={motion?.[index]}
           aria-selected={index === active}
           aria-controls={`${id}-panel-${index}`}
           tabIndex={index === active ? 0 : -1}

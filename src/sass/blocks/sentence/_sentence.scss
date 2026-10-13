@@ -1,7 +1,8 @@
+@use '../../base/variables' as *;
 .sentence {
     min-height: 1000px;
     padding: 40px 0 60px 0;
-    background-color: #fbfbfb;
+    background-color: $ivory;
     &__grid {
         display: grid;
         grid: repeat(3, minmax(660px, auto)) / repeat(3, 1fr);
@@ -9,8 +10,8 @@
     }
     &__block {
         position: relative;
-        background-color: #fff;
-        border: 1px solid rgba(227,227,227,.57);
+        background-color: $paper;
+        border: 1px solid $line;
         padding: 20px;
         z-index: 1;
     }

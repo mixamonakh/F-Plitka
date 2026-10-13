@@ -2,7 +2,7 @@
 .portfolio {
     padding: 60px 0;
     position: relative;
-    background: rgba(26, 26, 26, 1);
+    background: $graphite;
     z-index: 1;
     &__subtitle {
         margin-bottom: 20px;
@@ -20,13 +20,12 @@
     &__tab {
         list-style-type: none;
         cursor: pointer;
-        transition: .3s;
+        transition: color var(--motion-fast) var(--motion-ease);
         &:hover {
-            color: $blue;
-            transform: scale(1.2);
+            color: $gold;
         }
         &_active {
-            color: $violet;
+            color: $gold-light;
         }
     }
 
@@ -41,13 +40,16 @@
     display: grid;
     gap: 10px;
     a {
+        background-color: $graphite;
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: .7s;
-            &:hover {
-                filter: brightness(50%);
+            transition: opacity var(--motion-normal) var(--motion-ease);
+        }
+        @media (hover: hover) and (pointer: fine) {
+            &:hover img {
+                opacity: .88;
             }
         }
     }

@@ -14,14 +14,14 @@ export function PhototileBrief() {
         {" "}
         <h2
           className="title title_fz80 brief__title"
-          data-motion="animate__backInLeft"
+          data-motion="reveal"
         >
           {" "}
           Фотоплитка{" "}
         </h2>{" "}
         <div
           className="title title_gradient title_fz30 title_fz30_unset brief__subtitle"
-          data-motion="animate__backInRight"
+          data-motion="reveal"
         >
           {" "}
           Изготовление и укладка{" "}
@@ -59,7 +59,7 @@ export function PhototileBrief() {
             </ul>{" "}
             <p className="title title_fz15 title_fz15_font">
               {" "}
-              Наша компания MSK-STYLE оказывает услуги посредника. Вам не нужно
+              Наша компания Элит-Плит оказывает услуги посредника. Вам не нужно
               будет погружаться в изучение этой сферы деятельности,
               анализировать рынок, изучать отзывы и прочее. Мы всё сделаем за
               вас:{" "}
@@ -88,7 +88,7 @@ export function PhototileBrief() {
               <a
                 href="#calc"
                 className="title title_fz15 title_fz15_font button button_brief"
-                data-motion="animate__fadeInBottomLeft"
+                data-motion="reveal"
               >
                 {" "}
                 <div> Рассчитать стоимость </div>{" "}
@@ -125,7 +125,7 @@ export function PhototileBrief() {
               <a
                 href="#solutions"
                 className="title title_fz15 title_fz15_font button button_brief"
-                data-motion="animate__fadeInBottomRight"
+                data-motion="reveal"
               >
                 {" "}
                 <div> Готовые решения </div>{" "}
@@ -161,7 +161,7 @@ export function PhototileBrief() {
               </a>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="brief__img" data-motion="animate__fadeInRight">
+          <div className="brief__img" data-motion="reveal">
             {" "}
             <img
               src="/img/phototile/phototile.jpeg"
@@ -176,30 +176,27 @@ export function PhototileBrief() {
           {" "}
           <h2
             className="title title_fz80 services__title"
-            data-motion="animate__backInLeft"
+            data-motion="reveal"
           >
             {" "}
             Мы предлагаем{" "}
           </h2>{" "}
           <div
             className="title title_fz30 title_fz30_unset services__subtitle"
-            data-motion="animate__backInRight"
+            data-motion="reveal"
           >
             {" "}
             Два метода нанесения{" "}
           </div>{" "}
           <div className="services__grid services__grid_phototile">
             {" "}
-            <div className="services__block" data-motion="animate__zoomInLeft">
+            <div className="services__block" data-motion="reveal">
               {" "}
               <div className="services-picture">
                 {" "}
-                <img
-                  src="/img/services/background_block.jpg"
-                  alt=""
+                <span
                   className="services-picture__background"
-                  loading="lazy"
-                  decoding="async"
+                  aria-hidden="true"
                 />{" "}
                 <img
                   src="/img/services/phototile/services-card-one.jpg"
@@ -221,7 +218,7 @@ export function PhototileBrief() {
                 {" "}
                 изготовление от{" "}
                 <span className="title title_gradient title_fz20 title_fz20_lowercase">
-                  8 000 руб/м²
+                  12 000 руб/м²
                 </span>{" "}
               </div>{" "}
               <details className="title title_fz18 title_fz18_color">
@@ -230,7 +227,7 @@ export function PhototileBrief() {
                 <div className="services__details">Достоинства</div>{" "}
                 <ul className="title title_fz14 title_fz14_montserrat">
                   {" "}
-                  <li>Дешевая цена - от 1 тыс.руб/руб/м²</li>{" "}
+                  <li>Дешевая цена — от 12 000 руб/м²</li>{" "}
                   <li>Отличное решение для облицовки стен</li>{" "}
                   <li>Высокая укрывистость</li>{" "}
                   <li>Наличие белых чернил и лака</li>{" "}
@@ -279,16 +276,13 @@ export function PhototileBrief() {
                 </svg>{" "}
               </a>{" "}
             </div>{" "}
-            <div className="services__block" data-motion="animate__zoomInRight">
+            <div className="services__block" data-motion="reveal">
               {" "}
               <div className="services-picture">
                 {" "}
-                <img
-                  src="/img/services/background_block.jpg"
-                  alt=""
+                <span
                   className="services-picture__background"
-                  loading="lazy"
-                  decoding="async"
+                  aria-hidden="true"
                 />{" "}
                 <img
                   src="/img/services/phototile/services-card-two.jpg"
@@ -310,7 +304,7 @@ export function PhototileBrief() {
                 {" "}
                 изготовление от{" "}
                 <span className="title title_gradient title_fz20 title_fz20_lowercase">
-                  15 000 руб/м²
+                  20 000 руб/м²
                 </span>{" "}
               </div>{" "}
               <details className="title title_fz18 title_fz18_color">
@@ -328,7 +322,7 @@ export function PhototileBrief() {
                 <div>Недостатки</div>{" "}
                 <ul className="title title_fz14 title_fz14_montserrat">
                   {" "}
-                  <li>Высокая стоимость - от 10 тыс.руб/руб/м²</li>{" "}
+                  <li>Высокая стоимость — от 20 000 руб/м²</li>{" "}
                   <li>Максимальный размер деколи - A3</li>{" "}
                 </ul>{" "}
               </details>{" "}

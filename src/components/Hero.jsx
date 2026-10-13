@@ -1,25 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site } from "../content/site.js";
 import { RequestButton } from "./RequestButton.jsx";
+import { Navigation } from "./Navigation.jsx";
 import { useReducedMotion } from "../lib/useReducedMotion.js";
+import "./Hero.css";
 
 const slides = [
   {
-    image: "/img/header/background__header-one.jpg",
-    title: "Укладка плитки",
-    detail: site.name,
-    alt: "Укладка плитки в интерьере",
+    image: "/img/header/background__header-two.jpg",
+    title: "Укладка",
+    detail: "плитки",
+    label: "Укладка плитки",
+    href: "/styling.html",
+    description:
+      "Укладка плитки на стену и на пол. Ремонт ванных комнат под ключ.",
+    alt: "Интерьер ванной с отделкой из плитки под мрамор",
   },
   {
-    image: "/img/header/background__header-two.jpg",
+    image: "/img/portfolio/main/bathroom/bathroom_one.jpg",
     title: "Ремонт ванных",
     detail: "под ключ",
+    label: "Ремонт ванных",
+    href: "/bathroom.html",
+    description:
+      "Отделка стен и пола плиткой. Монтаж ванны, раковины и смесителей.",
     alt: "Ремонт ванной комнаты",
   },
   {
     image: "/img/header/background__header-three.jpg",
-    title: "изготовление и укладка",
-    detail: "фотоплитки",
+    title: "Фотоплитка",
+    detail: "",
+    label: "Фотоплитка",
+    href: "/phototile.html",
+    description: "Изготовление и укладка фотоплитки для вашего интерьера.",
     alt: "Фотоплитка в интерьере",
   },
 ];
@@ -28,135 +41,189 @@ export function Hero({ page }) {
   const initial =
     page.key === "bathroom" ? 1 : page.key === "phototile" ? 2 : 0;
   const [active, setActive] = useState(initial);
+  const [animateSlide, setAnimateSlide] = useState(false);
   const [playing, setPlaying] = useState(true);
   const reducedMotion = useReducedMotion();
   const isPlaying = playing && !reducedMotion;
+  const playbackBeforePointer = useRef(false);
   const [hovered, setHovered] = useState(false);
   useEffect(() => {
     if (!isPlaying || hovered) return;
     const timer = setInterval(() => {
-      if (!document.hidden) setActive((index) => (index + 1) % slides.length);
+      if (!document.hidden) {
+        setAnimateSlide(true);
+        setActive((index) => (index + 1) % slides.length);
+      }
     }, 6000);
     return () => clearInterval(timer);
   }, [isPlaying, hovered]);
   const move = (direction) => {
     setPlaying(false);
+    setAnimateSlide(true);
     setActive((index) => (index + direction + slides.length) % slides.length);
   };
   return (
     <header
-      className="promo"
-      aria-label="Наши услуги"
-      aria-roledescription="карусель"
+      className="promo site-hero"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocusCapture={() => setPlaying(false)}
     >
-      <div className="promo__slider" aria-live={isPlaying ? "off" : "polite"}>
+      <div className="site-hero__header site-hero__container">
+        <a
+          className="site-hero__brand"
+          href="/"
+          aria-label={`${site.name} — главная`}
+        >
+          <img src={site.logo} alt={site.name} width="968" height="658" />
+        </a>
+        <nav className="site-hero__nav" aria-label="Услуги">
+          {slides.map((slide) => (
+            <a
+              key={slide.href}
+              href={slide.href}
+              aria-current={page.path === slide.href ? "page" : undefined}
+            >
+              {slide.label}
+            </a>
+          ))}
+        </nav>
+        <div className="site-hero__contact">
+          <a className="site-hero__phone" href={site.phoneHref}>
+            <span>Позвоните нам</span>
+            {site.phoneLabel}
+          </a>
+          <Navigation page={page} />
+        </div>
+      </div>
+      <div
+        className="site-hero__slides"
+        role="region"
+        aria-label="Наши услуги"
+        aria-roledescription="карусель"
+        aria-live={isPlaying ? "off" : "polite"}
+      >
         {slides.map((slide, index) => (
           <div
             key={slide.image}
-            className="hero-slide animate__animated animate__fadeIn"
+            className={`hero-slide${animateSlide ? " hero-slide_enter" : ""}`}
             hidden={index !== active}
             aria-label={`${index + 1} из ${slides.length}`}
             role="group"
             aria-roledescription="слайд"
           >
             <img
-              className="promo__img"
+              className="site-hero__image"
               src={slide.image}
               alt={slide.alt}
               fetchPriority={index === initial ? "high" : undefined}
               loading={index === initial ? "eager" : "lazy"}
             />
-            <div className="container">
-              <div className="promo__wrapper">
-                <h2 className="promo__title">
-                  <span className="title title_fz46">{slide.title}</span>
-                  <span className="title title_fz99">{slide.detail}</span>
+            <div className="site-hero__body site-hero__container">
+              <div className="site-hero__copy">
+                <p className="site-hero__eyebrow">
+                  {site.name} · Лучшие в своём деле
+                </p>
+                <h2 className="site-hero__title">
+                  {slide.title}
+                  {slide.detail && (
+                    <>
+                      {" "}
+                      <span>{slide.detail}</span>
+                    </>
+                  )}
                 </h2>
-                <div className="title title_fz30 promo__subtitle">
-                  Лучшие в своём деле
+                <p className="site-hero__description">{slide.description}</p>
+                <div className="site-hero__actions">
+                  <RequestButton className="site-hero__request promo__button">
+                    Оставить заявку
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 12h15m-6-6 6 6-6 6" />
+                    </svg>
+                  </RequestButton>
+                  <a
+                    className="site-hero__portfolio"
+                    href={
+                      page.key === "confidentiality"
+                        ? "/#portfolio"
+                        : "#portfolio"
+                    }
+                  >
+                    Наши работы <span aria-hidden="true">↗</span>
+                  </a>
                 </div>
-                <RequestButton className="button button_header promo__button">
-                  <img src="/icons/email.png" alt="" className="promo__icon" />
-                  <span className="promo__text">
-                    <span className="title title_fz24">оставить</span>
-                    <span className="title title_fz25">заявку</span>
-                  </span>
-                </RequestButton>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <div className="promo-arrows" data-motion="animate__fadeInRight">
-        <a href="/" aria-label={`${site.name} — главная`}>
-          <img src={site.logo} alt={site.name} className="promo-arrows__logo" />
-        </a>
-        <div className="promo-arrows__wrapper">
+      <div className="site-hero__footer site-hero__container">
+        <div className="site-hero__services" aria-label="Выбрать слайд">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.label}
+              type="button"
+              aria-pressed={active === index}
+              onClick={() => {
+                setPlaying(false);
+                setAnimateSlide(true);
+                setActive(index);
+              }}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              {slide.label}
+            </button>
+          ))}
+        </div>
+        <div className="site-hero__controls">
+          <span className="site-hero__count" aria-hidden="true">
+            <strong>{String(active + 1).padStart(2, "0")}</strong> / 03
+          </span>
           <button
             type="button"
-            className="promo-arrows__prev"
+            className="site-hero__arrow"
             onClick={() => move(-1)}
             aria-label="Предыдущий слайд"
           >
-            <img src="/icons/left.svg" alt="" />
-            <span className="title title_fz15 promo-arrows__left">Назад</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m14 6-6 6 6 6" />
+            </svg>
           </button>
           <button
             type="button"
-            className="promo-arrows__next"
-            onClick={() => move(1)}
-            aria-label="Следующий слайд"
-          >
-            <img src="/icons/right.svg" alt="" />
-            <span className="title title_fz15 promo-arrows__right">Вперёд</span>
-          </button>
-          <button
-            type="button"
-            className="hero-play"
+            className="site-hero__arrow hero-play"
             aria-label={
               isPlaying ? "Остановить слайд-шоу" : "Запустить слайд-шоу"
             }
             aria-pressed={isPlaying}
-            onClick={() => setPlaying((value) => !value)}
+            onPointerDown={() => {
+              // Focus pauses rotation before the click reaches this button.
+              playbackBeforePointer.current = isPlaying;
+            }}
+            onClick={(event) =>
+              setPlaying(
+                !(event.detail > 0 ? playbackBeforePointer.current : isPlaying),
+              )
+            }
           >
-            {isPlaying ? "Ⅱ" : "▶"}
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              {isPlaying ? (
+                <path d="M9 6v12M15 6v12" />
+              ) : (
+                <path d="m9 6 9 6-9 6Z" />
+              )}
+            </svg>
           </button>
-        </div>
-      </div>
-      <div className="promo-phone" data-motion="animate__fadeInDown">
-        <div className="promo-phone__wrapper">
-          <div className="promo-phone__block">
-            <p className="title title_fz16 promo-phone__title">
-              Звоните прямо сейчас:
-            </p>
-            <a
-              href={site.phoneHref}
-              className="title title_fz20 promo-phone__number"
-            >
-              {site.phoneLabel}
-            </a>
-          </div>
-          <div className="promo-phone__divider" />
-          <a
-            href={site.phoneHref}
-            className="button button_phone button_borderNone button-call__button promo-phone__button"
-            aria-label="Позвонить"
+          <button
+            type="button"
+            className="site-hero__arrow"
+            onClick={() => move(1)}
+            aria-label="Следующий слайд"
           >
-            <span className="button-call__img">
-              <img
-                src="/icons/promo-phone.svg"
-                alt=""
-                className="button-call__svg"
-              />
-            </span>
-            <span className="button-call__text promo-phone__text">
-              <span className="title title_fz16">заказать</span>
-              <span className="title title_fz16 title_fz16_weight">звонок</span>
-            </span>
-          </a>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m10 6 6 6-6 6" />
+            </svg>
+          </button>
         </div>
       </div>
     </header>

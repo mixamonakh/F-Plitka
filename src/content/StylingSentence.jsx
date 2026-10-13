@@ -7,21 +7,21 @@ export function StylingSentence() {
         {" "}
         <h2
           className="title title_fz80 title_black sentence__title"
-          data-motion="animate__backInLeft"
+          data-motion="reveal"
         >
           {" "}
           Широкий спектр{" "}
         </h2>{" "}
         <div
           className="title title_gradient title_fz30 title_fz30_unset sentence__subtitle"
-          data-motion="animate__backInRight"
+          data-motion="reveal"
         >
           {" "}
           Оказываемых услуг{" "}
         </div>{" "}
         <div className="sentence__grid">
           {" "}
-          <div className="sentence__block" id="tile">
+          <div className="sentence__block" data-motion="reveal" id="tile">
             {" "}
             <img
               src="/img/image-background/background_three.png"
@@ -36,7 +36,6 @@ export function StylingSentence() {
                 src="/img/styling/sentence/tile.png"
                 alt=""
                 className="sentence__img"
-                data-motion="animate__flipInX"
                 loading="lazy"
                 decoding="async"
               />{" "}
@@ -87,7 +86,7 @@ export function StylingSentence() {
               </RequestButton>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="sentence__block" id="stoneware">
+          <div className="sentence__block" data-motion="reveal" id="stoneware">
             {" "}
             <img
               src="/img/image-background/background_three.png"
@@ -102,7 +101,6 @@ export function StylingSentence() {
                 src="/img/styling/sentence/stoneware.png"
                 alt=""
                 className="sentence__img"
-                data-motion="animate__flipInX"
                 loading="lazy"
                 decoding="async"
               />{" "}
@@ -153,7 +151,7 @@ export function StylingSentence() {
               </RequestButton>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="sentence__block" id="kitchen">
+          <div className="sentence__block" data-motion="reveal" id="kitchen">
             {" "}
             <img
               src="/img/image-background/background_three.png"
@@ -168,7 +166,6 @@ export function StylingSentence() {
                 src="/img/styling/sentence/kitchen.png"
                 alt=""
                 className="sentence__img"
-                data-motion="animate__flipInX"
                 loading="lazy"
                 decoding="async"
               />{" "}
@@ -219,7 +216,7 @@ export function StylingSentence() {
               </RequestButton>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="sentence__block" id="granite">
+          <div className="sentence__block" data-motion="reveal" id="granite">
             {" "}
             <img
               src="/img/image-background/background_three.png"
@@ -234,7 +231,6 @@ export function StylingSentence() {
                 src="/img/styling/sentence/granite.png"
                 alt=""
                 className="sentence__img"
-                data-motion="animate__flipInX"
                 loading="lazy"
                 decoding="async"
               />{" "}
@@ -284,7 +280,7 @@ export function StylingSentence() {
               </RequestButton>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="sentence__block" id="largeStoneware">
+          <div className="sentence__block" data-motion="reveal" id="largeStoneware">
             {" "}
             <img
               src="/img/image-background/background_three.png"
@@ -299,7 +295,6 @@ export function StylingSentence() {
                 src="/img/styling/sentence/largeStoneware.png"
                 alt=""
                 className="sentence__img"
-                data-motion="animate__flipInX"
                 loading="lazy"
                 decoding="async"
               />{" "}
@@ -350,7 +345,7 @@ export function StylingSentence() {
               </RequestButton>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="sentence__block" id="stage">
+          <div className="sentence__block" data-motion="reveal" id="stage">
             {" "}
             <img
               src="/img/image-background/background_three.png"
@@ -365,7 +360,6 @@ export function StylingSentence() {
                 src="/img/styling/sentence/stage.png"
                 alt=""
                 className="sentence__img"
-                data-motion="animate__flipInX"
                 loading="lazy"
                 decoding="async"
               />{" "}
@@ -415,7 +409,7 @@ export function StylingSentence() {
               </RequestButton>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="sentence__block" id="mosaic">
+          <div className="sentence__block" data-motion="reveal" id="mosaic">
             {" "}
             <img
               src="/img/image-background/background_three.png"
@@ -430,7 +424,6 @@ export function StylingSentence() {
                 src="/img/styling/sentence/mosaic.png"
                 alt=""
                 className="sentence__img"
-                data-motion="animate__flipInX"
                 loading="lazy"
                 decoding="async"
               />{" "}
@@ -482,7 +475,7 @@ export function StylingSentence() {
               </RequestButton>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="sentence__block" id="hammam">
+          <div className="sentence__block" data-motion="reveal" id="hammam">
             {" "}
             <img
               src="/img/image-background/background_three.png"
@@ -497,7 +490,6 @@ export function StylingSentence() {
                 src="/img/styling/sentence/hammam.png"
                 alt=""
                 className="sentence__img"
-                data-motion="animate__flipInX"
                 loading="lazy"
                 decoding="async"
               />{" "}

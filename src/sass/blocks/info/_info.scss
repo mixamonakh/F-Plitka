@@ -2,7 +2,7 @@
 .info {
     min-height: 630px;
     padding: 70px 0 20px 0;
-    background-color: #fbfbfb;
+    background-color: $ivory;
     &__grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -22,8 +22,8 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
     &__block {
-        border: 1px solid rgb(227 227 227 / 57%);
-        background-color: #fff;
+        border: 1px solid $line;
+        background-color: $paper;
         padding: 20px;
         box-shadow: 0px 0px 1px 0px rgb(0 0 0 / 40%);
     }
@@ -37,8 +37,9 @@
 }
 
 .info-company {
-    background-image: linear-gradient(120deg, $blue 0%, $violet 90%);
-    box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 40%);
+    background-image: linear-gradient(135deg, $panel, $graphite);
+    border: 1px solid $gold;
+    box-shadow: 0 12px 32px rgba($graphite, .14);
     padding: 60px 40px 40px 40px;
     position: absolute;
     width: 540px;
@@ -58,9 +59,11 @@
         justify-content: space-between;
         align-items: center;
         a {
+            svg path {
+                transition: fill var(--motion-fast) var(--motion-ease);
+            }
             &:hover svg path{
-                transition: 1s;
-                fill: rgb(252, 6, 6);
+                fill: $gold-light;
             }
         }
     }

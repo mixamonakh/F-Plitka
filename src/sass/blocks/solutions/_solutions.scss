@@ -1,5 +1,6 @@
+@use '../../base/variables' as *;
 .solutions {
-    background-color: #fbfbfb;
+    background-color: $ivory;
     padding: 70px 0 50px 0;
     position: relative;
     &__subtitle {

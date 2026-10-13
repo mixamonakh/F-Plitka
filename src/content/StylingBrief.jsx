@@ -13,14 +13,14 @@ export function StylingBrief() {
         {" "}
         <h2
           className="title title_fz80 brief__title"
-          data-motion="animate__backInLeft"
+          data-motion="reveal"
         >
           {" "}
           Укладка плитки{" "}
         </h2>{" "}
         <div
           className="title title_gradient title_fz30 title_fz30_unset brief__subtitle"
-          data-motion="animate__backInRight"
+          data-motion="reveal"
         >
           {" "}
           Подберите подходящую услугу{" "}
@@ -70,7 +70,7 @@ export function StylingBrief() {
               В таком деле лучшим решением будет - довериться профессионалам,
               ведь при выборе частных мастеров - отсутствует гарантия, при
               самостоятельной работе - скажется отсутствие опыта, а при выборе
-              конкурентов - вы рискуете переплатить. Компания MSK-STYLE
+              конкурентов - вы рискуете переплатить. Компания Элит-Плит
               обеспечит вам работу на высшем уровне !{" "}
             </p>{" "}
             <div className="brief__buttons">
@@ -149,7 +149,7 @@ export function StylingBrief() {
               </a>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="brief__img" data-motion="animate__fadeInRight">
+          <div className="brief__img" data-motion="reveal">
             {" "}
             <img
               src="/img/styling/plitka.png"

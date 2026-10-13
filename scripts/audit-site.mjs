@@ -93,8 +93,16 @@ for (const [file, nodes] of documents) {
   )
     errors.push(`${file}: missing description`);
   for (const node of nodes) {
-    for (const key of ["href", "src", "action"])
+    for (const key of ["href", "src", "action"]) {
+      if (
+        key === "action" &&
+        node.tagName === "form" &&
+        attr(node, key) === "/api/contact" &&
+        attr(node, "method") === "post"
+      )
+        continue;
       if (attr(node, key) !== undefined) await checkRef(attr(node, key), file);
+    }
     if (node.tagName === "img") {
       images++;
       if (attr(node, "alt") === undefined)

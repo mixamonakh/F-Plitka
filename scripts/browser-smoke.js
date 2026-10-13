@@ -39,16 +39,23 @@ async (page) => {
   await page
     .getByRole("button", { name: "Остановить слайд-шоу", exact: true })
     .click();
-  await page.locator(".services__title").scrollIntoViewIfNeeded();
-  await page.waitForFunction(() =>
-    window.motionEvents.some((e) => e.name === "backInLeft"),
+  check(
+    (await page.locator(".hero-play").getAttribute("aria-pressed")) === "false",
+    "The first pointer click stops the slideshow",
   );
-  await page.locator(".services-picture").first().scrollIntoViewIfNeeded();
+  await page.locator(".services__block").first().scrollIntoViewIfNeeded();
   await page.waitForFunction(() =>
-    window.motionEvents.some((e) => e.name === "zoomInLeft"),
+    window.motionEvents.some((e) => e.name === "content-reveal"),
   );
   const motion = await page.evaluate(() => window.motionEvents);
-  check(motion.length >= 5, "Original CSS entrance effects fire on scroll");
+  check(
+    motion.some((event) => event.name === "content-reveal"),
+    "Content reveals on scroll",
+  );
+  check(
+    motion.every((event) => ["content-reveal", "fade-in"].includes(event.name)),
+    "Only restrained entrance effects are used",
+  );
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const name of [
     "index",
@@ -88,8 +95,8 @@ async (page) => {
     check(
       await dialog
         .getByRole("button", { name: "Отправить", exact: true })
-        .isDisabled(),
-      name + ": form does not pretend to submit",
+        .isEnabled(),
+      name + ": form is ready to submit",
     );
     check(
       !(await dialog.getByRole("checkbox").isChecked()),
@@ -121,7 +128,7 @@ async (page) => {
       await calc.getByLabel("Введите площадь", { exact: true }).fill("15");
       check(
         (await calc.locator("output").textContent()).replace(/\s/g, "") ===
-          (name === "styling" ? "21000руб." : "120000руб."),
+          (name === "styling" ? "37500руб." : "180000руб."),
         name + ": price is correct",
       );
       await calc
@@ -129,7 +136,7 @@ async (page) => {
         .fill("7778");
       check(
         (await calc.locator("output").textContent()).replace(/\s/g, "") ===
-          (name === "styling" ? "18900руб." : "108000руб."),
+          (name === "styling" ? "33750руб." : "162000руб."),
         name + ": coupon is correct",
       );
       await calc.getByLabel("Введите площадь", { exact: true }).fill("0");
@@ -144,7 +151,7 @@ async (page) => {
         check(
           (await calc.getByRole("combobox").inputValue()) ===
             "Укладка крупноформатного керамогранита",
-          "Equal-price services stay distinct",
+          "Large-format porcelain service remains selectable",
         );
       }
     }
@@ -187,4 +194,4 @@ async (page) => {
   check(requests.length === 0, "No POST requests were sent");
   check(errors.length === 0, "No JavaScript errors");
   return { passed: results.length, results, motion, errors, requests };
-};
+}

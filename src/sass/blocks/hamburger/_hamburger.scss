@@ -5,25 +5,25 @@
     left: 0;
     width: 96px;
     height: 96px;
-    background-color: #fff;
+    background-color: $paper;
     z-index: 5;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: .5s;
+    transition: background-color var(--motion-fast) var(--motion-ease);
     span {
         width: 25px;
         margin: 3px;
         height: 4px;
         background-color: #000;
-        transition: .5s;
+        transition: background-color var(--motion-fast) var(--motion-ease);
     }
     &:hover {
-        background-color: $blue;
+        background-color: $gold;
     }
     &:hover span {
-        background-color: #fff;
+        background-color: $graphite;
     }
 }

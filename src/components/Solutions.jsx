@@ -14,13 +14,13 @@ export function Solutions({ page }) {
       <div className="container">
         <h2
           className="title title_fz80 title_black solutions__title"
-          data-motion="animate__backInLeft"
+          data-motion="reveal"
         >
           Безграничные возможности
         </h2>
         <div
           className="title title_gradient title_fz30 title_fz30_unset solutions__subtitle"
-          data-motion="animate__backInRight"
+          data-motion="reveal"
         >
           Для создания интерьера
         </div>
@@ -43,11 +43,6 @@ export function Solutions({ page }) {
               buttonClassName="button button_tabs title title_fz19 solutions__tab"
               activeClassName="solutions__tab_active"
               label="Категории фотоплитки"
-              motion={[
-                "animate__fadeInRight animate__faster",
-                "animate__fadeInRight animate__fast",
-                "animate__fadeInRight",
-              ]}
             />
           </div>
         </div>

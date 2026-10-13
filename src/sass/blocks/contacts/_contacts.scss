@@ -1,13 +1,14 @@
+@use '../../base/variables' as *;
 .contacts {
     padding: 140px 0 0 0;
     position: relative;
-    background: rgba(26, 26, 26, 1);
+    background: $graphite;
     &__title {
         margin-bottom: 15px;
     }
     &__block {
         padding: 40px 30px 30px 30px;
-        background-color: #fff;
+        background-color: $paper;
         width: 1200px;
         margin: 0 auto;
         min-height: 310px;

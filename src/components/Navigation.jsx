@@ -11,7 +11,6 @@ export function Navigation({ page }) {
       <button
         type="button"
         className="hamburger"
-        data-motion="animate__fadeInLeft"
         aria-label="Открыть меню"
         aria-expanded={open}
         aria-haspopup="dialog"
@@ -29,7 +28,7 @@ export function Navigation({ page }) {
       >
         <div className="menu-block">
           <a href={site.phoneHref}>Телефон</a>
-          <a href={site.whatsappHref}>WhatsApp</a>
+          <a href={site.telegramHref}>Telegram</a>
         </div>
         <nav aria-label="Основная навигация">
           <ul className="menu__list">

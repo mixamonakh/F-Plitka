@@ -1,7 +1,9 @@
 @use '../../base/variables' as *;
 .form {
-    background-color: transparent;
-    background-image: linear-gradient(330deg, $blue 0%, $violet 80%);
+    background-color: $graphite;
+    background-image: linear-gradient(135deg, $panel, $graphite);
+    border: 1px solid $gold;
+    color: $ivory;
     padding: 30px 30px;
     &_stock {
         position: relative;
@@ -51,9 +53,9 @@
             color: #fff;
             text-decoration: underline;
             letter-spacing: 10%;
-            transition: 1s;
+            transition: color var(--motion-fast) var(--motion-ease);
             &:hover {
-                color: black;
+                color: $gold-light;
             }
         }
     }

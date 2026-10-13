@@ -24,7 +24,6 @@ import "@fontsource/montserrat/latin-800.css";
 import "@fontsource/montserrat/cyrillic-700.css";
 import "@fontsource/montserrat/latin-700.css";
 import "./sass/style.scss";
-import "animate.css/animate.min.css";
 import "./styles.css";
 
 const pageKey = getPageKey(window.location.pathname);

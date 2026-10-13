@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 * {
     font-family: "Fira Sans", Sans-serif;
     margin: 0;
@@ -10,6 +12,7 @@
 }
 
 a {
+    color: $graphite;
     text-decoration: none
 }
 a:hover {
@@ -23,5 +26,6 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     position: relative;
+    background-color: $ivory;
+    color: $graphite;
 }
-

@@ -1,8 +1,9 @@
+@use '../../base/variables' as *;
 .brief {
     min-height: 1000px;
     position: relative;
     z-index: 1;
-    background-color: #1a1a1a;
+    background-color: $graphite;
     padding: 60px 0 0 0;
     &__grid {
         display: grid;

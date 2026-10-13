@@ -14,7 +14,7 @@ export function IndexStock({ page }) {
         {" "}
         <div className="stock__grid">
           {" "}
-          <div className="form form_stock" data-motion="animate__fadeInLeft">
+          <div className="form form_stock">
             {" "}
             <h2 className="title title_fz45 title_fz45_white form__title">
               {" "}
@@ -41,7 +41,6 @@ export function IndexStock({ page }) {
             </div>{" "}
             <div
               className="titile title_gradient title_fz30 title_fz30_media stock__subtitle"
-              data-motion="animate__fadeInRight"
             >
               {" "}
               При заказе с сайта{" "}

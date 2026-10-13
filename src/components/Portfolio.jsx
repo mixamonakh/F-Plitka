@@ -20,13 +20,13 @@ export function Portfolio({ page }) {
       <div className="container">
         <h2
           className="title title_fz80 portfolio__title"
-          data-motion="animate__backInLeft"
+          data-motion="reveal"
         >
           НАШИ РАБОТЫ
         </h2>
         <div
           className="title title_gradient title_fz30 title_fz30_unset portfolio__subtitle"
-          data-motion="animate__backInRight"
+          data-motion="reveal"
         >
           Портфолио выполненных работ
         </div>
@@ -49,13 +49,12 @@ export function Portfolio({ page }) {
             aria-labelledby={`${id}-tab-${group}`}
             hidden={active !== group}
           >
-            <div className={gallery.className}>
+            <div className={gallery.className} data-motion="reveal">
               {gallery.images.map((image, index) => (
                 <a
                   key={image.src}
                   href={image.src}
                   className={image.className}
-                  data-motion="animate__zoomIn"
                   aria-label={`Увеличить: ${image.caption || gallery.title}, фото ${index + 1}`}
                   onClick={(event) => {
                     event.preventDefault();

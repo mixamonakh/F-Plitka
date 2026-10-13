@@ -6,7 +6,6 @@ import Phototile from "./content/phototile.jsx";
 import Styling from "./content/styling.jsx";
 import Confidentiality from "./content/confidentiality.jsx";
 import { Hero } from "./components/Hero.jsx";
-import { Navigation } from "./components/Navigation.jsx";
 import { Contacts } from "./components/Contacts.jsx";
 import { Dialog } from "./components/Dialog.jsx";
 import { LeadForm } from "./components/LeadForm.jsx";
@@ -39,7 +38,6 @@ export function App({ pageKey }) {
         Перейти к содержимому
       </a>
       <Hero page={page} />
-      <Navigation page={page} />
       <main id="main" tabIndex={-1}>
         <h1 className="sr-only">{page.title}</h1>
         <Page page={page} />

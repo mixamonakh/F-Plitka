@@ -1,4 +1,10 @@
-/* Исправления адаптивности и стили React-компонентов поверх исходного дизайна. */
+/* Палитра «Элит-Плит», адаптивность и стили React-компонентов. */
+:root {
+  --motion-fast: 160ms;
+  --motion-normal: 220ms;
+  --motion-reveal: 480ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+}
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -7,44 +13,107 @@ body {
   min-width: 320px;
   overflow-x: clip;
 }
-.motion-pending {
-  opacity: 0;
+::selection {
+  color: var(--brand-graphite);
+  background: var(--brand-gold-light);
 }
-.animate__zoomInLeft,
-.animate__zoomInUp,
-.animate__zoomInRight {
-  --animate-duration: 1.5s;
+.info .title_gradient:not(.stage-grid__number),
+.stock .title_gradient:not(.stock__procent),
+.sentence .title_gradient,
+.solutions .title_gradient {
+  color: #454545;
+  background: none;
+  -webkit-text-fill-color: currentColor;
 }
-.hero-slide {
-  --animate-duration: 0.6s;
+.info-company__subtitle,
+.form__subtitle {
+  color: var(--brand-gold-light);
 }
 .site-dialog[open] {
   display: flex;
   flex-direction: column;
-  animation: dialog-appear 0.25s ease-out;
 }
-.navigation-dialog[open] {
-  animation: menu-appear 0.35s ease-out;
-}
-@keyframes dialog-appear {
+@keyframes content-reveal {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-@keyframes menu-appear {
+@keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateX(-100%);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
   }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .motion-pending {
+    opacity: 0;
+  }
+  .motion-reveal {
+    animation: content-reveal var(--motion-reveal) var(--motion-ease) var(--motion-delay, 0ms) both;
+  }
+  .hero-slide:not(.hero-slide_enter) .site-hero__eyebrow,
+  .hero-slide:not(.hero-slide_enter) .site-hero__title,
+  .hero-slide:not(.hero-slide_enter) .site-hero__description,
+  .hero-slide:not(.hero-slide_enter) .site-hero__actions {
+    animation: content-reveal var(--motion-reveal) var(--motion-ease) both;
+  }
+  .hero-slide:not(.hero-slide_enter) .site-hero__description {
+    animation-delay: 60ms;
+  }
+  .hero-slide:not(.hero-slide_enter) .site-hero__actions {
+    animation-delay: 120ms;
+  }
+  .hero-slide .site-hero__actions:focus-within {
+    animation: none;
+  }
+  .hero-slide_enter {
+    animation: fade-in var(--motion-reveal) var(--motion-ease);
+  }
+  .site-dialog[open],
+  .site-dialog[open]::backdrop {
+    animation: fade-in var(--motion-normal) var(--motion-ease);
+  }
+  .services__block details[open] > div {
+    animation: fade-in var(--motion-fast) var(--motion-ease);
+  }
+  [data-motion]:focus-within {
+    opacity: 1;
+    animation: none;
+  }
+}
+@media (min-width: 993px) {
+  .services__grid > [data-motion]:nth-child(3n + 2),
+  .sentence__grid > [data-motion]:nth-child(3n + 2),
+  .advantage-grid > [data-motion]:nth-child(3n + 2),
+  .stage-grid > [data-motion]:nth-child(even) {
+    --motion-delay: 60ms;
+  }
+  .services__grid > [data-motion]:nth-child(3n),
+  .sentence__grid > [data-motion]:nth-child(3n),
+  .advantage-grid > [data-motion]:nth-child(3n) {
+    --motion-delay: 120ms;
+  }
+}
+.hero-play,
+.site-hero__nav a,
+.site-hero__phone,
+.site-hero__portfolio,
+.site-hero__services button,
+.site-hero .site-hero__arrow,
+.dialog-close,
+.navigation-dialog .menu__link,
+.lightbox-controls button,
+.solution-controls button {
+  transition:
+    color var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-fast) var(--motion-ease);
 }
 button,
 input,
@@ -57,7 +126,14 @@ summary {
 }
 button:disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 1;
+}
+.button:disabled,
+.button:disabled:hover {
+  color: #737373;
+  background: #f1f1f1;
+  border: 1px solid #dedede;
+  box-shadow: none;
 }
 button {
   -webkit-tap-highlight-color: transparent;
@@ -73,7 +149,7 @@ a:hover {
 }
 .services__button,
 .services__button:hover {
-  color: #fff;
+  color: var(--brand-graphite);
 }
 .info-company p {
   color: #fff;
@@ -82,8 +158,9 @@ a:hover {
   display: inline-flex;
 }
 :focus-visible {
-  outline: 3px solid #ffcf40 !important;
+  outline: 3px solid var(--brand-gold) !important;
   outline-offset: 4px;
+  box-shadow: 0 0 0 4px var(--brand-graphite);
 }
 input:focus-visible,
 select:focus-visible {
@@ -110,8 +187,8 @@ select:focus-visible {
   transform: translateY(-180%);
   z-index: 2000;
   padding: 12px;
-  color: #fff;
-  background: #0057ff;
+  color: var(--brand-graphite);
+  background: var(--brand-gold);
 }
 .skip-link:focus {
   transform: none;
@@ -148,21 +225,32 @@ select:focus-visible {
   line-height: 1.05;
   margin-bottom: 16px;
 }
+.hero-slide:first-child .title_fz99 {
+  color: var(--brand-gold);
+  text-shadow: none;
+}
+.promo__icon,
+.button-call__svg {
+  filter: brightness(0.15);
+}
 .promo-arrows__logo {
   max-width: 180px;
   max-height: 90px;
   object-fit: contain;
   left: auto;
   right: 20px;
+  width: 180px;
+  bottom: 20px;
 }
 .hero-play {
   border: 0;
   width: 44px;
   color: white;
-  background: #1a1a1a;
+  background: var(--brand-graphite);
 }
 .hero-play:hover {
-  background: #0057ff;
+  color: var(--brand-gold-light);
+  background: var(--brand-graphite);
 }
 .promo-phone__title {
   margin: 0 0 5px;
@@ -263,19 +351,21 @@ select:focus-visible {
   line-height: 1;
   border: 0;
   border-radius: 50%;
-  background: #fff;
-  color: #1a1a1a;
+  background: var(--brand-paper);
+  color: var(--brand-graphite);
 }
 .request-dialog {
   width: 480px;
   padding-top: 52px;
   border-radius: 12px;
-  background: linear-gradient(330deg, #0057ff 0%, #aa42f3 80%);
+  border: 1px solid var(--brand-gold);
+  background: var(--brand-panel);
 }
 .request-dialog .form {
   padding-top: 0;
   width: 100%;
   background: none;
+  border: 0;
 }
 .navigation-dialog {
   width: min(360px, calc(100% - 32px));
@@ -284,7 +374,7 @@ select:focus-visible {
   inset: 0 auto 0 0;
   margin: 0;
   padding-top: 52px;
-  background: #1a1a1a;
+  background: var(--brand-graphite);
   color: white;
 }
 .navigation-dialog .menu-block {
@@ -307,7 +397,8 @@ select:focus-visible {
   line-height: 1.4;
 }
 .navigation-dialog .menu__link:hover {
-  background: #0057ff;
+  color: var(--brand-graphite);
+  background: var(--brand-gold);
 }
 .navigation-dialog .menu__link_accordion {
   padding: 10px 15px 10px 30px;
@@ -351,6 +442,7 @@ select:focus-visible {
   flex-shrink: 0;
   width: 18px;
   height: 18px;
+  accent-color: var(--brand-gold);
 }
 .form__block input,
 .form__select select,
@@ -358,6 +450,8 @@ select:focus-visible {
 .form-calc select {
   width: 100%;
   min-width: 0;
+  color: var(--brand-graphite);
+  background-color: var(--brand-paper);
 }
 .form__block label,
 .form__select label,
@@ -407,7 +501,7 @@ select:focus-visible {
 }
 .lightbox {
   width: min(1100px, calc(100% - 24px));
-  background: #141414;
+  background: var(--brand-graphite);
   color: white;
   border-radius: 8px;
   padding: 56px 16px 16px;
@@ -438,15 +532,16 @@ select:focus-visible {
   height: 44px;
   border: 0;
   border-radius: 6px;
-  background: #0057ff;
-  color: white;
+  background: var(--brand-gold);
+  color: var(--brand-graphite);
   font-size: 24px;
 }
 .solutions__tab {
   max-width: 100%;
 }
 .solutions__tab_active {
-  background: #0057ff;
+  background: var(--brand-graphite);
+  color: var(--brand-ivory);
 }
 .slider {
   height: auto;
@@ -493,6 +588,7 @@ select:focus-visible {
 }
 .contacts__svg {
   flex-shrink: 0;
+  color: var(--brand-gold);
 }
 .contacts__map {
   position: static;

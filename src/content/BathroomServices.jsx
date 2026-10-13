@@ -14,30 +14,27 @@ export function BathroomServices() {
         {" "}
         <h2
           className="title title_fz80 services__title"
-          data-motion="animate__backInLeft"
+          data-motion="reveal"
         >
           {" "}
           Мы предлагаем{" "}
         </h2>{" "}
         <div
           className="title title_fz30 title_fz30_unset services__subtitle"
-          data-motion="animate__backInRight"
+          data-motion="reveal"
         >
           {" "}
           Для Вас только лучшее{" "}
         </div>{" "}
         <div className="services__grid services__grid_bathroom">
           {" "}
-          <div className="services__block" data-motion="animate__zoomInLeft">
+          <div className="services__block" data-motion="reveal">
             {" "}
             <div className="services-picture">
               {" "}
-              <img
-                src="/img/services/background_block.jpg"
-                alt=""
+              <span
                 className="services-picture__background"
-                loading="lazy"
-                decoding="async"
+                aria-hidden="true"
               />{" "}
               <img
                 src="/img/services/bathroom/services-card-one.jpg"
@@ -116,16 +113,13 @@ export function BathroomServices() {
               </svg>{" "}
             </a>{" "}
           </div>{" "}
-          <div className="services__block" data-motion="animate__zoomInRight">
+          <div className="services__block" data-motion="reveal">
             {" "}
             <div className="services-picture">
               {" "}
-              <img
-                src="/img/services/background_block.jpg"
-                alt=""
+              <span
                 className="services-picture__background"
-                loading="lazy"
-                decoding="async"
+                aria-hidden="true"
               />{" "}
               <img
                 src="/img/services/bathroom/services-card-two.jpg"
@@ -205,16 +199,13 @@ export function BathroomServices() {
               </svg>{" "}
             </a>{" "}
           </div>{" "}
-          <div className="services__block" data-motion="animate__zoomInRight">
+          <div className="services__block" data-motion="reveal">
             {" "}
             <div className="services-picture">
               {" "}
-              <img
-                src="/img/services/background_block.jpg"
-                alt=""
+              <span
                 className="services-picture__background"
-                loading="lazy"
-                decoding="async"
+                aria-hidden="true"
               />{" "}
               <img
                 src="/img/services/bathroom/services-card-three.jpg"

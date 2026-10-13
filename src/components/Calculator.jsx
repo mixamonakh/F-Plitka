@@ -6,6 +6,7 @@ export function Calculator({ services }) {
   const [service, setService] = useState("");
   const [area, setArea] = useState("");
   const [coupon, setCoupon] = useState("");
+  const isLinear = service === "Укладка ступени";
   const total = calculateTotal(
     services.find((item) => item.label === service)?.price,
     area,
@@ -24,7 +25,11 @@ export function Calculator({ services }) {
           id={`${id}-service`}
           className="form-calc__serv title title_fz15 title_fz15_black"
           value={service}
-          onChange={(event) => setService(event.target.value)}
+          onChange={(event) => {
+            const nextService = event.target.value;
+            if (isLinear !== (nextService === "Укладка ступени")) setArea("");
+            setService(nextService);
+          }}
         >
           <option value="" disabled>
             Выберите услугу
@@ -42,7 +47,7 @@ export function Calculator({ services }) {
             htmlFor={`${id}-area`}
             className="title title_fz14 title_fz14_montserrat"
           >
-            Введите площадь
+            {isLinear ? "Введите длину" : "Введите площадь"}
           </label>
           <input
             id={`${id}-area`}
@@ -53,7 +58,7 @@ export function Calculator({ services }) {
             value={area}
             onChange={(event) => setArea(event.target.value)}
             className="square title title_fz15 title_fz15_black"
-            placeholder="м²"
+            placeholder={isLinear ? "пог. м" : "м²"}
           />
         </div>
         <output

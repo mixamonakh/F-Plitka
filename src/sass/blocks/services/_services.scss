@@ -2,7 +2,7 @@
 .services {
     min-height: 850px;
     padding: 70px 0;
-    background: rgba(26, 26, 26, 1);
+    background: $graphite;
     position: relative;
     z-index: 1;
     &_phototile {
@@ -14,9 +14,7 @@
         padding: 70px 0 90px 0;
     }
     &__subtitle {
-        background: linear-gradient(337deg,$violet 74%,$blue 94%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        color: $gold;
         margin-bottom: 20px;
     }
     // Кнопка
@@ -58,20 +56,6 @@
             }
         }
     }
-    // Спойлер Анимация
-    @keyframes text {
-        0%   {
-            max-height: 0;
-        }
-        100% {
-            max-height: 35em;
-        }
-    }
-    &__block {
-        details[open] {
-            animation: text 1s;
-        }
-    }
     &__details {
         margin-top: 10px;
     }
@@ -94,6 +78,15 @@
         height: 280px;
         right: 0;
         bottom: 0;
+        border: 1px solid $gold;
+        background-color: $gold;
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: $paper;
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+        }
         &-middle {
             top: -7px;
             bottom: unset;
@@ -109,10 +102,6 @@
         height: 250px;
         top: 0;
         left: 0;
-        transition: .5s;
-        &:hover {
-            box-shadow: -5px -5px 20px 2px $violet;
-        }
         &-middle {
             width: 350px;
             height: 233px;

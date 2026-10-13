@@ -13,21 +13,21 @@ export function IndexAdvantage() {
         {" "}
         <h2
           className="title title_fz80 advantage__title"
-          data-motion="animate__backInLeft"
+          data-motion="reveal"
         >
           {" "}
           Только лучший сервис{" "}
         </h2>{" "}
         <div
           className="title title_gradient title_fz30 title_fz30_unset advantage__subtitle"
-          data-motion="animate__backInRight"
+          data-motion="reveal"
         >
           {" "}
           Почему именно мы ?{" "}
         </div>{" "}
         <div className="advantage-grid">
           {" "}
-          <div className="advantage-grid__block" data-motion="animate__fadeIn">
+          <div className="advantage-grid__block" data-motion="reveal">
             {" "}
             <div className="advantage-grid__picture">
               {" "}
@@ -83,7 +83,7 @@ export function IndexAdvantage() {
               </div>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="advantage-grid__block" data-motion="animate__fadeIn">
+          <div className="advantage-grid__block" data-motion="reveal">
             {" "}
             <div className="advantage-grid__picture">
               {" "}
@@ -142,7 +142,7 @@ export function IndexAdvantage() {
               </div>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="advantage-grid__block" data-motion="animate__fadeIn">
+          <div className="advantage-grid__block" data-motion="reveal">
             {" "}
             <div className="advantage-grid__picture">
               {" "}
@@ -193,7 +193,7 @@ export function IndexAdvantage() {
               </div>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="advantage-grid__block" data-motion="animate__fadeIn">
+          <div className="advantage-grid__block" data-motion="reveal">
             {" "}
             <div className="advantage-grid__picture">
               {" "}
@@ -248,7 +248,7 @@ export function IndexAdvantage() {
               </div>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="advantage-grid__block" data-motion="animate__fadeIn">
+          <div className="advantage-grid__block" data-motion="reveal">
             {" "}
             <div className="advantage-grid__picture">
               {" "}
@@ -351,7 +351,7 @@ export function IndexAdvantage() {
               </div>{" "}
             </div>{" "}
           </div>{" "}
-          <div className="advantage-grid__block" data-motion="animate__fadeIn">
+          <div className="advantage-grid__block" data-motion="reveal">
             {" "}
             <div className="advantage-grid__picture">
               {" "}
