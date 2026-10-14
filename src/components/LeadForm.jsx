@@ -1,12 +1,27 @@
 import { useId, useRef, useState } from "react";
 import { site } from "../content/site.js";
+import { trackCalculation } from "../lib/analytics.js";
+import { calculateEstimate, formatMoney } from "../lib/calculator.js";
+import { rateById } from "../content/pages.js";
 
-export function LeadForm({ services }) {
+export function LeadForm({ services, calculation }) {
+  const estimate = calculation
+    ? calculateEstimate(calculation.parameters)
+    : null;
+  const selectedRate =
+    calculation &&
+    rateById[
+      calculation.parameters.items?.[0]?.id || calculation.parameters.material
+    ];
+  const initialService =
+    selectedRate && services.includes(selectedRate.label)
+      ? selectedRate.label
+      : services[0];
   const id = useId();
   const inFlight = useRef(false);
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState(null);
-  const [service, setService] = useState(services[0]);
+  const [service, setService] = useState(initialService);
   const isLinear = service === "Укладка ступени";
   const inputClass = "title title_fz15 title_fz15_black";
   const labelClass = "title title_fz14 title_fz14_montserrat";
@@ -19,6 +34,7 @@ export function LeadForm({ services }) {
     const data = new FormData(form);
     const body = Object.fromEntries(data);
     body.check = data.get("check") === "on";
+    if (calculation) body.calculation = calculation;
     inFlight.current = true;
     setSending(true);
     setResult(null);
@@ -39,7 +55,11 @@ export function LeadForm({ services }) {
         return;
       }
       form.reset();
-      setService(services[0]);
+      // Предзаполненные данные расчёта тоже очищаются после успешной заявки.
+      form.elements.namedItem("address").value = "";
+      form.elements.namedItem("square").value = "";
+      trackCalculation("contact_confirmed", calculation?.parameters.mode);
+      setService(initialService);
       setResult({
         ok: true,
         message: "Заявка отправлена. Мы свяжемся с вами.",
@@ -65,6 +85,13 @@ export function LeadForm({ services }) {
       aria-busy={sending}
       onSubmit={submit}
     >
+      {calculation && (
+        <p className="ep-request__estimate">
+          Предварительная сумма:{" "}
+          {estimate.lines.length ? formatMoney(estimate.total) : "по смете"}.
+          Параметры расчёта будут приложены к заявке.
+        </p>
+      )}
       <div className="form__select">
         <label htmlFor={`${id}-service`} className={labelClass}>
           Услуга
@@ -74,6 +101,7 @@ export function LeadForm({ services }) {
           id={`${id}-service`}
           className={inputClass}
           disabled={sending}
+          defaultValue={initialService}
           onChange={(event) => {
             if (isLinear !== (event.target.value === "Укладка ступени"))
               event.target.form.elements.namedItem("square").value = "";
@@ -96,6 +124,7 @@ export function LeadForm({ services }) {
             maxLength={500}
             disabled={sending}
             autoComplete="street-address"
+            defaultValue={calculation?.parameters.address || ""}
             className={inputClass}
             placeholder="г. Москва, ул. Перовская, д.1, к.2"
           />
@@ -112,6 +141,15 @@ export function LeadForm({ services }) {
             min="0.01"
             step="0.01"
             inputMode="decimal"
+            defaultValue={
+              estimate
+                ? calculation.parameters.items?.length === 1
+                  ? estimate.lines[0]?.quantity ||
+                    estimate.unknowns[0]?.quantity ||
+                    ""
+                  : estimate.area || ""
+                : ""
+            }
             className={inputClass}
             placeholder={isLinear ? "15 пог. м" : "15 м²"}
           />
@@ -186,8 +224,7 @@ export function LeadForm({ services }) {
           htmlFor={`${id}-check`}
           className="title title_fz15 title_fz15_font title_fz15_unset form__check"
         >
-          Согласие на обработку{" "}
-          <a href="/confidentiality.html">персональных данных</a>
+          Согласие на обработку <a href="/privacy/">персональных данных</a>
         </label>
       </div>
       {result && (

@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { estimateText } from "../src/lib/calculator.js";
 
 const RECIPIENT = "19aikkan85@gmail.com";
 
@@ -14,6 +15,14 @@ export function contactText(lead) {
       ? `Длина: ${lead.square ? `${lead.square} пог. м` : "Не указана"}`
       : `Площадь: ${lead.square ? `${lead.square} м²` : "Не указана"}`,
     "Согласие на обработку персональных данных: получено",
+    ...(lead.calculation
+      ? [
+          `Расчёт: ${lead.calculation.id || "без ID"}`,
+          `Создан: ${lead.calculation.createdAt || "дата не указана"}`,
+          estimateText(lead.calculation.result),
+          `Параметры: ${JSON.stringify(lead.calculation.parameters)}`,
+        ]
+      : []),
   ].join("\n");
 }
 

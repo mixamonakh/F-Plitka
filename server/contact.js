@@ -1,6 +1,11 @@
 import { createHash } from "node:crypto";
 import { pages } from "../src/content/pages.js";
 import { deliverContact } from "./delivery.js";
+import {
+  calculateEstimate,
+  normalizeCalculation,
+} from "../src/lib/calculator.js";
+import { site } from "../src/content/site.js";
 
 const services = new Set(Object.values(pages).flatMap((page) => page.services));
 const limits = {
@@ -48,6 +53,36 @@ export function validateContact(body) {
     if (!Number.isFinite(quantity) || quantity <= 0)
       throw new ContactError(400, "Укажите площадь или длину больше нуля.");
     lead.square = String(quantity);
+  }
+  if (body.calculation !== undefined) {
+    const calculation = body.calculation;
+    if (
+      !calculation ||
+      typeof calculation !== "object" ||
+      Array.isArray(calculation) ||
+      !calculation.parameters ||
+      typeof calculation.parameters !== "object" ||
+      Array.isArray(calculation.parameters)
+    )
+      throw new ContactError(400, "Проверьте параметры расчёта.");
+    const parameters = normalizeCalculation(calculation.parameters);
+    const result = calculateEstimate(parameters);
+    if (result.errors.length) throw new ContactError(400, result.errors[0]);
+    lead.calculation = {
+      id:
+        typeof calculation.id === "string" &&
+        /^[a-zA-Z0-9-]{1,64}$/.test(calculation.id)
+          ? calculation.id
+          : null,
+      createdAt:
+        typeof calculation.createdAt === "string" &&
+        Number.isFinite(Date.parse(calculation.createdAt))
+          ? new Date(calculation.createdAt).toISOString()
+          : null,
+      priceDate: site.priceDate,
+      parameters,
+      result,
+    };
   }
   return lead;
 }

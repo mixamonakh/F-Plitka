@@ -1,3 +1,11 @@
+import {
+  rateDetails,
+  unpricedRates,
+  serviceContent,
+  homeFaq,
+  projects,
+} from "./catalog.js";
+
 export const pages = {
   index: {
     key: "index",
@@ -1071,4 +1079,145 @@ export const pages = {
       },
     ],
   },
+};
+
+export const rates = [
+  ...rateDetails.map(([id, label, unit, includes, excludes], index) => ({
+    id,
+    label,
+    unit,
+    includes,
+    excludes,
+    price: pages.styling.calculator[index].price,
+    category: "laying",
+  })),
+  ...unpricedRates,
+];
+export const rateById = Object.fromEntries(
+  rates.map((rate) => [rate.id, rate]),
+);
+export const services = serviceContent.map((service) => ({
+  ...service,
+  type: "service",
+  path: `/uslugi/${service.slug}/`,
+  description: service.lead,
+  rates: service.rateIds.map((id) => rateById[id]),
+  cases: projects.filter((project) =>
+    service.material
+      ? project.material === service.material
+      : service.room && project.room === service.room,
+  ),
+  faq: service.faq ?? homeFaq.slice(0, 3),
+}));
+export const leadServices = [
+  ...new Set([
+    ...Object.values(pages).flatMap((page) => page.services),
+    ...services.map((service) => service.h1),
+  ]),
+];
+Object.assign(pages.index, {
+  h1: "Укладка плитки под ключ в Москве",
+  title: "Укладка плитки под ключ в Москве — Элит-Плит",
+  description:
+    "Укладка плитки в Москве и Подмосковье до 50 км. Цены на работу и материалы отдельно, предварительный расчёт без телефона. Реальные работы Элит-Плит.",
+  type: "home",
+});
+Object.assign(pages.styling, {
+  path: "/ceny/",
+  type: "prices",
+  h1: "Цены на плиточные работы",
+  title: "Цены на укладку плитки в Москве — прайс Элит-Плит",
+  description:
+    "Прайс на плиточные работы: укладка, керамогранит, мозаика, фартук и ступени. Состав ставок и отдельные операции. Скидка 10% при заказе с сайта.",
+});
+Object.assign(pages.confidentiality, {
+  path: "/privacy/",
+  type: "privacy",
+  h1: "Политика конфиденциальности",
+  title: "Политика конфиденциальности — Элит-Плит",
+});
+// В новом handoff фотоплитка не является страницей запуска.
+Object.assign(pages.phototile, { redirect: "/ceny/" });
+for (const service of services)
+  pages[service.key] = { ...service, services: leadServices };
+for (const [key, path, type, h1, title, description] of [
+  [
+    "calculator",
+    "/kalkulyator/",
+    "calculator",
+    "Калькулятор стоимости плиточных работ",
+    "Калькулятор укладки плитки — расчёт работ онлайн · Элит-Плит",
+    "Быстрый и подробный расчёт плиточных работ, количества плитки и запаса. Предварительная смета по строкам без телефона.",
+  ],
+  [
+    "portfolio",
+    "/raboty/",
+    "portfolio",
+    "Наши работы",
+    "Плиточные работы: портфолио и проекты — Элит-Плит",
+    "Фотографии плиточных работ Элит-Плит. Фильтры по помещению, материалу и площади. Ванные, фартуки, керамогранит и мозаика.",
+  ],
+  [
+    "about",
+    "/o-nas/",
+    "about",
+    "Команда Элит-Плит",
+    "О команде Элит-Плит — подход к плиточным работам",
+    "Команда Элит-Плит: этапы работы, подход к облицовке и контроль качества. Москва и ближайшее Подмосковье.",
+  ],
+  [
+    "contacts",
+    "/kontakty/",
+    "contacts",
+    "Контакты и зона выезда",
+    "Элит-Плит — контакты, Москва и ближайшее Подмосковье",
+    "Телефон, Telegram, MAX и адрес Элит-Плит. Москва и Подмосковье до 50 км от МКАД. Уточните условия выезда по адресу.",
+  ],
+  [
+    "consent",
+    "/consent/",
+    "consent",
+    "Согласие на обработку персональных данных",
+    "Согласие на обработку персональных данных — Элит-Плит",
+    "Место для текста согласия, предоставляемого владельцем сайта.",
+  ],
+])
+  pages[key] = {
+    key,
+    path,
+    type,
+    h1,
+    title,
+    description,
+    services: leadServices,
+    ...(key === "consent" ? { noindex: true } : {}),
+  };
+for (const project of projects) {
+  const key = `project-${project.slug}`;
+  pages[key] = {
+    key,
+    path: `/raboty/${project.slug}/`,
+    type: "project",
+    h1: project.title,
+    title: `Проект: ${project.title} — Элит-Плит`,
+    description: `${project.title}. Фотография из портфолио Элит-Плит.`,
+    project,
+    services: leadServices,
+    noindex: true,
+  };
+}
+export const navigation = [
+  { href: "/#uslugi", label: "Услуги" },
+  { href: "/ceny/", label: "Цены" },
+  { href: "/kalkulyator/", label: "Калькулятор" },
+  { href: "/raboty/", label: "Наши работы" },
+  { href: "/o-nas/", label: "О нас" },
+  { href: "/kontakty/", label: "Контакты" },
+];
+export const redirects = {
+  "/index.html": "/",
+  "/bathroom.html": "/uslugi/ukladka-plitki-v-vannoy/",
+  "/styling.html": "/ceny/",
+  "/phototile.html": "/ceny/",
+  "/confidentiality.html": "/privacy/",
 };

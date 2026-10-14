@@ -46,7 +46,9 @@ async function checkRef(ref, from) {
   const target = path.join(
     root,
     decodeURIComponent(
-      parsed.pathname === "/" ? "/index.html" : parsed.pathname,
+      parsed.pathname.endsWith("/")
+        ? `${parsed.pathname}index.html`
+        : parsed.pathname,
     ),
   );
   refs.add(target);
@@ -112,7 +114,13 @@ for (const [file, nodes] of documents) {
     }
     if (node.tagName === "iframe" && !attr(node, "title"))
       errors.push(`${file}: iframe missing title`);
-    if (node.tagName === "label" && !ids.includes(attr(node, "for")))
+    if (
+      node.tagName === "label" &&
+      !ids.includes(attr(node, "for")) &&
+      !walk(node).some((child) =>
+        ["input", "select", "textarea"].includes(child.tagName),
+      )
+    )
       errors.push(`${file}: label without matching field ${attr(node, "for")}`);
     if (
       ["a", "button"].includes(node.tagName) &&

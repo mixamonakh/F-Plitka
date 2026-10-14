@@ -7,10 +7,14 @@ $paper: #ffffff;
 $line: #e6e3dc;
 
 :root {
-    --brand-gold: #{$gold};
-    --brand-gold-light: #{$gold-light};
-    --brand-graphite: #{$graphite};
-    --brand-ivory: #{$ivory};
-    --brand-paper: #{$paper};
-    --brand-panel: linear-gradient(135deg, #{$panel}, #{$graphite});
+  --brand-gold: #{$gold};
+  --brand-gold-light: #{$gold-light};
+  --brand-graphite: #{$graphite};
+  --brand-ivory: #{$ivory};
+  --brand-paper: #{$paper};
+  --brand-panel: linear-gradient(135deg, #{$panel}, #{$graphite});
+  --brand-gold-text: #8c6d22;
+  --brand-sand: #f1efea;
+  --brand-sand-hover: #faf6ea;
+  --brand-border: #cfcbc2;
 }

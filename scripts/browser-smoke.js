@@ -1,197 +1,300 @@
 async (page) => {
   const base = new URL(page.url()).origin;
-  const results = [];
-  const errors = [];
-  const requests = [];
-  page.on("pageerror", (e) => errors.push(e.message));
-  page.on("request", (r) => {
-    if (r.method() === "POST") requests.push(r.url());
-  });
+  const results = [],
+    errors = [],
+    posts = [];
   const check = (condition, message) => {
-    if (!condition) throw Error(message);
+    if (!condition) throw new Error(message);
     results.push(message);
   };
-  await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => {
-    window.motionEvents = [];
-    document.addEventListener("animationstart", (event) =>
-      window.motionEvents.push({
-        name: event.animationName,
-        className: event.target.className,
-      }),
-    );
-  });
-  await page.goto(base + "/");
-  await page.mouse.move(1430, 980);
-  const first = await page
-    .locator(".hero-slide:not([hidden])")
-    .getAttribute("aria-label");
-  await page.waitForFunction(
-    (first) =>
-      document
-        .querySelector(".hero-slide:not([hidden])")
-        .getAttribute("aria-label") !== first,
-    first,
-    { timeout: 8500 },
-  );
-  check(true, "Hero advances automatically");
-  await page
-    .getByRole("button", { name: "Остановить слайд-шоу", exact: true })
-    .click();
-  check(
-    (await page.locator(".hero-play").getAttribute("aria-pressed")) === "false",
-    "The first pointer click stops the slideshow",
-  );
-  await page.locator(".services__block").first().scrollIntoViewIfNeeded();
-  await page.waitForFunction(() =>
-    window.motionEvents.some((e) => e.name === "content-reveal"),
-  );
-  const motion = await page.evaluate(() => window.motionEvents);
-  check(
-    motion.some((event) => event.name === "content-reveal"),
-    "Content reveals on scroll",
-  );
-  check(
-    motion.every((event) => ["content-reveal", "fade-in"].includes(event.name)),
-    "Only restrained entrance effects are used",
-  );
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  for (const name of [
-    "index",
-    "bathroom",
-    "phototile",
-    "styling",
-    "confidentiality",
-  ]) {
-    await page.goto(base + "/" + (name === "index" ? "" : name + ".html"));
-    await page
-      .getByRole("button", { name: "Открыть меню", exact: true })
-      .click();
-    const menu = page.getByRole("dialog", { name: "Навигация", exact: true });
-    check(await menu.isVisible(), name + ": menu opens");
-    await menu.locator("summary").click();
-    check(
-      await menu
-        .getByRole("link", { name: "Укладка плитки на пол", exact: true })
-        .isVisible(),
-      name + ": service submenu opens",
-    );
-    await page.keyboard.press("Escape");
-    check(
-      await page
-        .getByRole("button", { name: "Открыть меню", exact: true })
-        .evaluate((e) => e === document.activeElement),
-      name + ": Escape restores menu focus",
-    );
-    await page.locator(".hero-slide:not([hidden]) .promo__button").click();
-    const dialog = page.getByRole("dialog", {
-      name: "Оставить заявку",
+  const onError = (error) => errors.push(error.message);
+  const onRequest = (request) => {
+    if (request.method() === "POST" && request.url().startsWith(base + "/api/"))
+      posts.push(request.url());
+  };
+  page.on("pageerror", onError);
+  page.on("request", onRequest);
+  const go = (path) =>
+    page.goto(base + path, { waitUntil: "domcontentloaded" });
+  try {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await go("/");
+    const servicePaths = await page
+      .locator(".ep-service-grid__item")
+      .evaluateAll((links) => links.map((link) => new URL(link.href).pathname));
+    const paths = [
+      "/",
+      "/ceny/",
+      "/kalkulyator/",
+      "/raboty/",
+      "/o-nas/",
+      "/kontakty/",
+      "/privacy/",
+      "/consent/",
+      ...servicePaths,
+      "/raboty/plitka-v-vannoy/",
+    ];
+    for (const width of [390, 1280]) {
+      await page.setViewportSize({ width, height: 900 });
+      for (const path of paths) {
+        const response = await go(path);
+        await page.locator("h1").waitFor();
+        check(response.status() === 200, `${width} ${path}: HTTP 200`);
+        check(
+          (await page.locator("h1").count()) === 1,
+          `${width} ${path}: one h1`,
+        );
+        check(
+          (await page.locator('link[rel="canonical"]').getAttribute("href")) ===
+            "https://elit-plit.ru" + path,
+          `${width} ${path}: canonical`,
+        );
+        check(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+          `${width} ${path}: no horizontal overflow`,
+        );
+      }
+    }
+    for (const width of [320, 768, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      for (const path of ["/", "/kalkulyator/", "/ceny/", "/kontakty/"]) {
+        await go(path);
+        check(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+          `${width} ${path}: no horizontal overflow`,
+        );
+      }
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
+    await go("/");
+    const menuButton = page.getByRole("button", {
+      name: "Открыть меню",
       exact: true,
     });
-    await dialog
-      .getByLabel("Телефон", { exact: true })
-      .fill("+7 999 111-22-33");
+    await menuButton.click();
+    const menu = page.getByRole("dialog", { name: "Навигация", exact: true });
+    check(await menu.isVisible(), "Mobile navigation opens by pointer");
+    await menu.locator("summary").click();
     check(
-      await dialog
-        .getByRole("button", { name: "Отправить", exact: true })
-        .isEnabled(),
-      name + ": form is ready to submit",
-    );
-    check(
-      !(await dialog.getByRole("checkbox").isChecked()),
-      name + ": consent is not preselected",
+      (await menu.locator("nav details a").count()) === 10,
+      "All 10 service links are in mobile submenu",
     );
     await page.keyboard.press("Escape");
-    if (name !== "confidentiality") {
-      const tabs = page.locator("#portfolio [role=tab]");
-      for (let index = 0; index < (await tabs.count()); index++) {
-        await tabs.nth(index).click();
-        const panel = page.locator("#portfolio [role=tabpanel]:not([hidden])");
-        await panel.locator("a").first().click();
-        const lightbox = page.getByRole("dialog", {
-          name: "Просмотр фотографии",
+    check(!(await menu.isVisible()), "Escape closes navigation");
+    check(
+      await menuButton.evaluate(
+        (element) => element === document.activeElement,
+      ),
+      "Dialog restores focus to opener",
+    );
+    await page.keyboard.press("Enter");
+    check(await menu.isVisible(), "Keyboard opens navigation");
+    await menu.getByRole("button", { name: "Закрыть", exact: true }).click();
+    await go("/ceny/");
+    await page
+      .getByLabel("Поиск по операциям", { exact: true })
+      .fill("ступени");
+    check(
+      (await page.locator(".ep-price-table tbody tr").count()) === 1,
+      "Price search filters rows",
+    );
+    check(
+      new URL(page.url()).searchParams.get("query") === "ступени",
+      "Search is synchronized with URL",
+    );
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.getByLabel("Поиск по операциям", { exact: true }).waitFor();
+    await page.waitForFunction(
+      () => document.querySelector('input[type="search"]').value === "ступени",
+    );
+    check(
+      (await page.locator(".ep-price-table tbody tr").count()) === 1,
+      "Price filter survives reload",
+    );
+    await page.getByLabel("Поиск по операциям", { exact: true }).fill("");
+    const stairs = page
+      .locator(".ep-price-table tr")
+      .filter({ hasText: "Укладка ступени" });
+    await stairs
+      .getByRole("button", { name: "+ в расчёт", exact: true })
+      .click();
+    await page
+      .getByLabel("Укладка ступени, пог. м", { exact: true })
+      .fill("2,5");
+    check(
+      (await page.locator(".ep-price-summary output").innerText())
+        .replace(/\s/g, "")
+        .includes("12375"),
+      "Stairs price uses linear metres and website discount",
+    );
+    await page
+      .getByRole("link", { name: "Открыть в калькуляторе", exact: true })
+      .click();
+    await page.getByLabel("Укладка ступени, пог. м", { exact: true }).waitFor();
+    check(
+      (await page
+        .getByLabel("Укладка ступени, пог. м", { exact: true })
+        .inputValue()) === "2,5",
+      "Price selection transfers into calculator",
+    );
+    await page
+      .getByRole("button", { name: "Сохранить расчёт", exact: false })
+      .click();
+    check(
+      await page.locator(".ep-calc__saved").isVisible(),
+      "Saved version exposes ID and price date",
+    );
+    const savedHref = await page
+      .getByRole("link", { name: "Открыть сохранённую версию", exact: true })
+      .getAttribute("href");
+    await go(savedHref);
+    await page.getByLabel("Укладка ступени, пог. м", { exact: true }).waitFor();
+    check(
+      (await page
+        .getByLabel("Укладка ступени, пог. м", { exact: true })
+        .inputValue()) === "2,5",
+      "Saved version restores its parameters",
+    );
+    const downloadEvent = page.waitForEvent("download");
+    await page
+      .getByRole("button", { name: "Скачать файл расчёта", exact: true })
+      .click();
+    check(
+      (await downloadEvent).suggestedFilename().startsWith("elit-plit-"),
+      "Saved calculation downloads a versioned file",
+    );
+    await page
+      .getByRole("button", {
+        name: "Получить предварительный расчёт",
+        exact: true,
+      })
+      .click();
+    const form = page.getByRole("dialog", {
+      name: "Получить предварительный расчёт",
+      exact: true,
+    });
+    check(await form.isVisible(), "Estimate CTA opens existing lead form");
+    check(
+      (await form
+        .getByLabel("Телефон", { exact: true })
+        .getAttribute("required")) !== null,
+      "Existing phone requirement is preserved",
+    );
+    await page.keyboard.press("Escape");
+    await go("/kalkulyator/");
+    await page.getByLabel("Длина, м", { exact: true }).fill("3");
+    await page.getByLabel("Ширина, м", { exact: true }).fill("2");
+    await page.getByLabel("Высота, м", { exact: true }).fill("2,5");
+    await page.getByLabel("Стена B", { exact: true }).uncheck();
+    await page.getByLabel("Стена D", { exact: true }).uncheck();
+    await page
+      .getByRole("group", { name: "Материал", exact: true })
+      .getByRole("radio", { name: /^Плитка/ })
+      .press("Space");
+    const total = () => page.locator(".ep-calc__total").innerText();
+    check(
+      (await total()).replace(/\s/g, "").includes("43650"),
+      "Selected walls and door calculate correctly in browser",
+    );
+    await page.getByLabel("Основание", { exact: true }).selectOption("unknown");
+    await page.getByLabel("Запил под 45°, пог. м", { exact: true }).fill("3");
+    check(
+      (await total()).replace(/\s/g, "").includes("43650"),
+      "Unpriced operations do not inflate subtotal",
+    );
+    check(
+      (await page
+        .locator(".ep-calc__unknown")
+        .getByText("по смете", { exact: true })
+        .count()) >= 3,
+      "Unknown operations stay explicit",
+    );
+    await page
+      .getByRole("radio", { name: "Количество плитки", exact: true })
+      .check();
+    check(
+      (await total()).includes("60 шт"),
+      "Tile quantity rounds up with reserve",
+    );
+    await page.getByRole("radio", { name: "Подробный", exact: true }).check();
+    check(
+      (await page.getByLabel("Длина, м", { exact: true }).inputValue()) === "3",
+      "Switching modes preserves geometry",
+    );
+    await page.getByLabel("Длина, м", { exact: true }).fill("-1");
+    await page.getByLabel("Ширина, м", { exact: true }).focus();
+    check(
+      (await page.getByRole("alert").count()) > 0 && (await total()) === "—",
+      "Negative dimensions show an error after blur",
+    );
+    await go("/raboty/");
+    await page.getByRole("button", { name: "Ванная", exact: true }).click();
+    check(
+      new URL(page.url()).searchParams.get("room") === "vannaya",
+      "Portfolio room filter updates URL",
+    );
+    check(
+      (await page.locator(".ep-project-card").count()) === 3,
+      "Portfolio room filter uses real project data",
+    );
+    await page.getByRole("button", { name: "до 5 м²", exact: true }).click();
+    check(
+      await page
+        .getByRole("heading", {
+          name: "Нет работ с такими параметрами",
           exact: true,
-        });
-        const before = await lightbox.locator("img").getAttribute("src");
-        await page.keyboard.press("ArrowRight");
-        check(
-          (await lightbox.locator("img").getAttribute("src")) !== before,
-          name + ": gallery " + index + " advances",
-        );
-        await page.keyboard.press("Escape");
-      }
-    }
-    if (name === "styling" || name === "phototile") {
-      const calc = page.locator(".form-calc");
-      await calc.getByRole("combobox").selectOption({ index: 1 });
-      await calc.getByLabel("Введите площадь", { exact: true }).fill("15");
-      check(
-        (await calc.locator("output").textContent()).replace(/\s/g, "") ===
-          (name === "styling" ? "37500руб." : "180000руб."),
-        name + ": price is correct",
+        })
+        .isVisible(),
+      "Unknown project areas are not invented",
+    );
+    await go("/kontakty/");
+    await page
+      .getByLabel("Адрес объекта", { exact: true })
+      .fill("Москва, тестовый адрес");
+    await page.getByLabel("Этаж", { exact: true }).fill("5");
+    await page
+      .getByRole("button", { name: "Уточнить условия выезда", exact: true })
+      .click();
+    check(
+      (
+        await page.locator(".ep-address-form__prepared pre").innerText()
+      ).includes("Этаж: 5"),
+      "Address form prepares a Telegram message without a phone",
+    );
+    for (const [from, to] of [
+      ["/index.html", "/"],
+      ["/styling.html", "/ceny/"],
+      ["/bathroom.html", "/uslugi/ukladka-plitki-v-vannoy/"],
+      ["/phototile.html", "/ceny/"],
+      ["/confidentiality.html", "/privacy/"],
+    ]) {
+      const response = await page.request.get(
+        base + from + "?utm_source=test",
+        { maxRedirects: 0 },
       );
-      await calc
-        .getByLabel("Введите купон для скидки", { exact: true })
-        .fill("7778");
       check(
-        (await calc.locator("output").textContent()).replace(/\s/g, "") ===
-          (name === "styling" ? "33750руб." : "162000руб."),
-        name + ": coupon is correct",
-      );
-      await calc.getByLabel("Введите площадь", { exact: true }).fill("0");
-      check(
-        (await calc.locator("output").textContent()) === "0 руб.",
-        name + ": zero area is zero",
-      );
-      if (name === "styling") {
-        await calc
-          .getByRole("combobox")
-          .selectOption({ label: "Укладка крупноформатного керамогранита" });
-        check(
-          (await calc.getByRole("combobox").inputValue()) ===
-            "Укладка крупноформатного керамогранита",
-          "Large-format porcelain service remains selectable",
-        );
-      }
-    }
-    if (name === "phototile") {
-      const solutions = page.locator("#solutions");
-      await solutions
-        .getByRole("tab", { name: "Природа", exact: true })
-        .click();
-      let image = await solutions
-        .locator(
-          "[role=tabpanel]:not([hidden]) .slider__wrapper:not([hidden]) img",
-        )
-        .getAttribute("src");
-      await solutions
-        .getByRole("button", { name: "Следующее решение", exact: true })
-        .click();
-      check(
-        (await solutions
-          .locator(
-            "[role=tabpanel]:not([hidden]) .slider__wrapper:not([hidden]) img",
-          )
-          .getAttribute("src")) !== image,
-        "Phototile slider advances",
+        response.status() === 301 &&
+          response.headers().location === to + "?utm_source=test",
+        `${from}: 301 preserves query`,
       );
     }
+    const missing = await go("/missing-handoff-check/");
+    check(
+      missing.status() === 404 &&
+        (await page
+          .getByRole("heading", { name: "Страница не найдена", exact: true })
+          .isVisible()),
+      "Unknown route returns real HTTP 404",
+    );
+    check(errors.length === 0, "No runtime or hydration errors");
+    check(posts.length === 0, "Browser checks did not send live leads");
+    return { checks: results.length, results, errors, posts };
+  } finally {
+    page.off("pageerror", onError);
+    page.off("request", onRequest);
   }
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto(base + "/");
-  check(
-    (await page.locator(".motion-pending").count()) === 0,
-    "Reduced motion keeps all content visible",
-  );
-  check(
-    (await page
-      .locator(".hero-slide:not([hidden])")
-      .evaluate((e) => getComputedStyle(e).animationName)) === "none",
-    "Reduced motion disables slide animation",
-  );
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  check(requests.length === 0, "No POST requests were sent");
-  check(errors.length === 0, "No JavaScript errors");
-  return { passed: results.length, results, motion, errors, requests };
-}
+};
