@@ -1,0 +1,462 @@
+.ep-home-services {
+  --service-gap: 12px;
+  --service-row: clamp(270px, 17vw, 284px);
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--brand-border);
+
+  &__grid {
+    padding: 0 var(--service-gap);
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr 1.38fr 0.59fr 1fr;
+    grid-template-rows: var(--service-row) calc(var(--service-row) * 0.9);
+    gap: var(--service-gap);
+  }
+
+  &__bottom {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 0.86fr 0.9fr 1.15fr;
+    gap: var(--service-gap);
+    margin-top: var(--service-gap);
+  }
+
+  .ep-service-card {
+    --card-text: var(--brand-graphite);
+    --card-muted: #292724;
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #eeece7;
+    color: var(--card-text);
+    box-shadow: inset 0 0 0 1px rgb(23 23 23 / 8%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgb(250 249 247 / 80%) 0%,
+        rgb(250 249 247 / 68%) 30%,
+        rgb(250 249 247 / 38%) 55%,
+        rgb(250 249 247 / 0%) 78%
+      );
+      pointer-events: none;
+    }
+
+    &:hover {
+      color: var(--card-text);
+    }
+
+    &:hover .ep-service-card__arrow,
+    &:focus-visible .ep-service-card__arrow {
+      color: var(--brand-graphite);
+      background: var(--brand-gold);
+      border-color: var(--brand-gold);
+    }
+
+    &:focus-visible {
+      outline-offset: -4px;
+    }
+
+    &:not(.ep-service-card_dark) {
+      h3,
+      p,
+      .ep-service-card__bottom > span:first-child {
+        text-shadow: 0 1px 3px rgb(250 249 247 / 90%);
+      }
+    }
+
+    h3 {
+      max-width: min(76%, 210px);
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      text-wrap: initial;
+      overflow-wrap: normal;
+    }
+
+    p {
+      max-width: min(68%, 180px);
+      margin-top: 12px;
+      color: var(--card-muted);
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    &__image {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100%;
+      padding: 24px;
+    }
+
+    &__number {
+      margin-bottom: 10px;
+      color: var(--brand-gold-text);
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      max-width: 188px;
+      margin-top: auto;
+      padding-top: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    &__arrow {
+      display: grid;
+      place-items: center;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--brand-gold-text);
+      border-radius: 50%;
+      background: rgb(250 249 247 / 45%);
+      transition:
+        color 160ms ease,
+        background-color 160ms ease,
+        border-color 160ms ease;
+    }
+
+    &_bathroom {
+      grid-column: 1;
+      grid-row: 1;
+
+      .ep-service-card__image {
+        object-position: 65% 58%;
+      }
+    }
+
+    &_floor {
+      grid-column: 2 / 4;
+      grid-row: 1 / 3;
+      // The notch follows the porcelain card and the gap between columns.
+      --notch-x: calc(
+        (100% - var(--service-gap)) * 0.7005076 + var(--service-gap)
+      );
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        var(--notch-x) 100%,
+        var(--notch-x) var(--service-row),
+        0 var(--service-row)
+      );
+
+      .ep-service-card__content {
+        max-width: 67%;
+        height: var(--service-row);
+        padding: 26px 30px;
+      }
+
+      h3 {
+        max-width: 300px;
+        font-size: clamp(26px, 2.1vw, 34px);
+      }
+
+      p {
+        max-width: 235px;
+        font-size: 16px;
+      }
+
+      .ep-service-card__bottom {
+        max-width: 250px;
+        padding-top: 12px;
+        font-size: 17px;
+      }
+    }
+
+    &_walls {
+      grid-column: 4;
+      grid-row: 1 / 3;
+
+      .ep-service-card__content {
+        padding: 30px 28px;
+      }
+
+      h3 {
+        max-width: 100%;
+        font-size: clamp(23px, 1.7vw, 28px);
+      }
+
+      p {
+        max-width: 78%;
+        font-size: 16px;
+      }
+    }
+
+    &_backsplash {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    &_porcelain {
+      grid-column: 2;
+      grid-row: 2;
+
+      h3 {
+        max-width: min(61%, 220px);
+      }
+
+      p {
+        max-width: min(61%, 185px);
+      }
+
+      .ep-service-card__bottom {
+        max-width: 200px;
+      }
+    }
+
+    &_dark {
+      --card-text: #fff;
+      --card-muted: #eeece8;
+      background: #3e3931;
+
+      h3,
+      p,
+      .ep-service-card__bottom > span:first-child {
+        text-shadow: 0 1px 4px rgb(0 0 0 / 50%);
+      }
+
+      &::after {
+        background: linear-gradient(
+          90deg,
+          rgb(17 15 12 / 72%),
+          rgb(17 15 12 / 30%) 52%,
+          rgb(17 15 12 / 4%)
+        );
+      }
+
+      .ep-service-card__number {
+        color: #e9c77d;
+      }
+
+      .ep-service-card__arrow {
+        border-color: #e9c77d;
+        background: rgb(23 23 23 / 18%);
+      }
+    }
+
+    &_mosaic::after {
+      background: linear-gradient(
+        90deg,
+        rgb(250 249 247 / 80%) 0%,
+        rgb(250 249 247 / 72%) 25%,
+        rgb(250 249 247 / 56%) 55%,
+        rgb(250 249 247 / 10%) 80%,
+        rgb(250 249 247 / 0%) 95%
+      );
+    }
+
+    &_epoxy::after {
+      background: linear-gradient(
+        90deg,
+        rgb(17 15 12 / 68%),
+        rgb(17 15 12 / 40%) 50%,
+        rgb(17 15 12 / 8%)
+      );
+    }
+  }
+
+  &__bottom .ep-service-card {
+    min-height: 228px;
+
+    &__content {
+      padding: 24px 22px 20px;
+    }
+
+    h3 {
+      max-width: min(96%, 190px);
+      font-size: clamp(16px, 1.1vw, 18px);
+    }
+
+    p {
+      max-width: min(72%, 170px);
+      font-size: 14px;
+    }
+
+    &__bottom {
+      padding-top: 14px;
+    }
+  }
+
+  .ep-service-card_shower .ep-service-card__image {
+    object-position: 70% 55%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .ep-home-services {
+    .ep-service-card__content {
+      padding: 22px 18px;
+    }
+
+    &__bottom .ep-service-card__content {
+      padding: 22px 16px 18px;
+    }
+
+    .ep-service-card h3 {
+      font-size: 17px;
+    }
+
+    .ep-service-card_floor h3,
+    .ep-service-card_walls h3 {
+      font-size: 26px;
+    }
+
+    &__bottom .ep-service-card h3 {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .ep-home-services {
+    --service-row: 230px;
+
+    &__top {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(4, var(--service-row));
+    }
+
+    &__bottom {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ep-service-card_floor {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      clip-path: none;
+
+      .ep-service-card__content {
+        height: 100%;
+        max-width: none;
+        padding: 28px;
+      }
+    }
+
+    .ep-service-card_walls {
+      grid-column: 1;
+      grid-row: 2 / 4;
+    }
+
+    .ep-service-card_backsplash {
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+    .ep-service-card_porcelain {
+      grid-column: 1 / -1;
+      grid-row: 4;
+
+      h3,
+      p {
+        max-width: 42%;
+      }
+    }
+
+    .ep-service-card_shower {
+      grid-column: 1 / -1;
+    }
+
+    .ep-service-card__content,
+    &__bottom .ep-service-card__content {
+      padding: 24px;
+    }
+
+    .ep-service-card h3,
+    &__bottom .ep-service-card h3 {
+      font-size: 20px;
+    }
+
+    &__bottom .ep-service-card h3 {
+      max-width: 100%;
+    }
+
+    .ep-service-card_floor h3,
+    .ep-service-card_walls h3 {
+      font-size: 28px;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .ep-home-services {
+    --service-gap: 10px;
+
+    &__top,
+    &__bottom {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: none;
+    }
+
+    .ep-service-card {
+      grid-column: auto;
+      grid-row: auto;
+      min-height: 230px;
+
+      h3 {
+        max-width: 76%;
+      }
+
+      p {
+        max-width: 68%;
+      }
+
+      &_floor,
+      &_walls {
+        min-height: 310px;
+
+        .ep-service-card__content {
+          padding: 26px;
+        }
+
+        h3 {
+          max-width: 90%;
+        }
+      }
+    }
+
+    &__bottom .ep-service-card h3 {
+      max-width: 90%;
+      font-size: 19px;
+    }
+
+    &__bottom .ep-service-card p {
+      max-width: 68%;
+      font-size: 15px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ep-home-services .ep-service-card__arrow {
+    transition: none;
+  }
+}

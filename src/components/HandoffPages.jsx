@@ -14,6 +14,7 @@ import { EstimateCalculator, Field } from "./EstimateCalculator.jsx";
 import { ProjectCards, ProjectGallery } from "./ProjectGallery.jsx";
 import { PriceTable } from "./PriceTable.jsx";
 import { ServiceGrid } from "./ServiceGrid.jsx";
+import { HomeServices } from "./HomeServices.jsx";
 import {
   Breadcrumbs,
   Button,
@@ -84,22 +85,7 @@ export function HomePage({ showPartners = true, showPrices = true }) {
           ))}
         </div>
       </section>
-      <section className="ep-section ep-container" id="uslugi">
-        <SectionHeading
-          kicker="Услуги"
-          title="Широкий спектр оказываемых услуг"
-          mobileTitle="Что делаем"
-        >
-          <p>
-            Десять направлений. У каждого — своя страница с составом работ,
-            ставками и примерами. Цена ниже — за работу, материалы отдельно.
-          </p>
-        </SectionHeading>
-        <ServiceGrid />
-        <div className="ep-only-mobile ep-mobile-price-link">
-          <TextLink href="/ceny/">Все цены и состав ставок</TextLink>
-        </div>
-      </section>
+      <HomeServices />
       {showPrices && (
         <section
           className="ep-section ep-container ep-split ep-home-prices"

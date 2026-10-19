@@ -20,7 +20,7 @@ async (page) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await go("/");
     const servicePaths = await page
-      .locator(".ep-service-grid__item")
+      .locator("#uslugi .ep-service-card")
       .evaluateAll((links) => links.map((link) => new URL(link.href).pathname));
     const paths = [
       "/",
